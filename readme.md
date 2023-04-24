@@ -1,5 +1,3 @@
-TBD
-
 ## Technical Writing Samples
 
 * [Support Documentation](./)
