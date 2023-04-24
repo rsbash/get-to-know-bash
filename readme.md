@@ -12,9 +12,9 @@
 * [VR Fitness Insider](https://www.vrfitnessinsider.com/author/richardbashara/) - 2017-2019
 * [G2 Article](https://learn.g2.com/how-to-choose-a-website-monitoring-tool) - 2020
 * [Sitepoint](https://www.sitepoint.com/are-you-guilty-of-making-these-common-seo-foul-ups/) - 2012
-* 
 
 
 ## Fiction
 
 * [Sign Your Name Here](https://www.redfez.net/fiction/horror-sign-your-name-here-928) 
+* [Previous Editor for Northridge Review](https://www.csun.edu/humanities/english/northridge-review-masthead)
