@@ -8,9 +8,9 @@
 
 ## General Writing Samples
 
-* [Uptime.com Author Page](https://uptime.com/blog/author/richardb)
-* [VR Fitness Insider](https://www.vrfitnessinsider.com/author/richardbashara/)
-* [G2 Article](https://learn.g2.com/how-to-choose-a-website-monitoring-tool) - 
+* [Uptime.com Author Page](https://uptime.com/blog/author/richardb) - 2019-2022
+* [VR Fitness Insider](https://www.vrfitnessinsider.com/author/richardbashara/) - 2017-2019
+* [G2 Article](https://learn.g2.com/how-to-choose-a-website-monitoring-tool) - 2020
 * [Sitepoint](https://www.sitepoint.com/are-you-guilty-of-making-these-common-seo-foul-ups/) - 2012
 * 
 
