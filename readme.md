@@ -9,7 +9,13 @@
 ## General Writing Samples
 
 * [Uptime.com Author Page](https://uptime.com/blog/author/richardb) - 2019-2022
+    * [99.9% Uptime](https://uptime.com/blog/what-is-99-9-uptime)
+    * [What Are You Really Paying For?](https://uptime.com/blog/what-are-you-paying-for-performance-monitoring) 
+    * [Preparing to Fail Fast](https://uptime.com/blog/fail-fast-web-monitoring)
 * [VR Fitness Insider](https://www.vrfitnessinsider.com/author/richardbashara/) - 2017-2019
+    * [How I Became a VR Fitness Believer](https://www.vrfitnessinsider.com/how-i-became-a-vr-fitness-believer/) 
+    * [Is Your Brain Hardwired for VR Fitness?](https://www.vrfitnessinsider.com/why-your-brain-may-be-hardwired-for-vr-fitness/)
+    * [VR Analytics](https://www.vrfitnessinsider.com/vr-analytics/)
 * [G2 Article](https://learn.g2.com/how-to-choose-a-website-monitoring-tool) - 2020
 * [Sitepoint](https://www.sitepoint.com/are-you-guilty-of-making-these-common-seo-foul-ups/) - 2012
 
