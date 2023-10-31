@@ -1,9 +1,9 @@
-|  Name |   |  WHOIS |   |   |
-|---|---|---|---|---|
-|   |   |   | Los Angeles, Ca   | ⌂  |
-| Richard  |   |   | 818-916-3347   | 🕽  |
-| Bashara  |   |   | [RichardBashara@gmail.com](mailto:richardbashara@gmail.com)  | ✉  |
-|  |   |   | [/in/richardbashara](https://www.linkedin.com/in/richardbashara/)  | 💼  |
+|  Name | WHOIS  |   |
+|---|---|---|
+|   | <p align=center>Los Angeles, Ca   | <p align=center>⌂</p>  |
+| Richard  | <p align=center>818-916-3347   | <p align=center>🕽</p>  |
+| Bashara  | <p align=center>[RichardBashara@gmail.com](mailto:richardbashara@gmail.com)  | <p align=center>✉</p>  |
+|  | <p align=center>[/in/richardbashara](https://www.linkedin.com/in/richardbashara/)  | <p align=center>💼</p>  |
 
 Technically savvy writer with 6+ years experience in user-facing SaaS documentation, copywriting, blogging, and technical whitepaper style content. Richard specializes in translating complicated technical topics into approachable language.  
 
@@ -18,7 +18,8 @@ Technically savvy writer with 6+ years experience in user-facing SaaS documentat
 | Product/Project Management – Advanced | Teamwork Skills |
 | Webinar Planning - Novice | Research and Data Analysis |
 | C/C++/Python/React/Javascript - Beginner | Problem-Solving  |
-   
+
+--------------
 
 ## Experience
 
