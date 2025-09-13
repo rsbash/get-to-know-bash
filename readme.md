@@ -9,7 +9,8 @@
 ## General Writing Samples
 
 * [Uptime.com Author Page](https://uptime.com/blog/author/richardb) - 2019-2022
-    * [99.9% Uptime](https://uptime.com/blog/what-is-99-9-uptime)
+    * [99.9% Uptime](https://drive.google.com/file/d/19Nl559Kp1jBY5f4d4ZkqDnZ348y9FWUo/view?usp=sharing)
+        * [Published here, credited to Uptime.com](https://uptime.com/blog/what-is-99-9-uptime)
     * [What Are You Really Paying For?](https://uptime.com/blog/what-are-you-paying-for-performance-monitoring) 
     * [Preparing to Fail Fast](https://uptime.com/blog/fail-fast-web-monitoring)
 * [VR Fitness Insider](https://www.vrfitnessinsider.com/author/richardbashara/) - 2017-2019
