@@ -1,10 +1,10 @@
 |  Key | Value  |   |
 |---|---|---|
-| Name | <p align=center>Richard Bashara | <p align=center>🧑</p> |
-| City  | <p align=center>Los Angeles, Ca   | <p align=center>⌂</p>  |
-| Phone  | <p align=center>818-916-3347   | <p align=center>🕽</p>  |
-| Email  | <p align=center>[RichardBashara@gmail.com](mailto:richardbashara@gmail.com)  | <p align=center>✉</p>  |
-| LinkedIn | <p align=center>[/in/richardbashara](https://www.linkedin.com/in/richardbashara/)  | <p align=center>💼</p>  |
+| <p align=center>Name | <p align=center>Richard Bashara | <p align=center>🧑</p> |
+| <p align=center>City  | <p align=center>Los Angeles, Ca   | <p align=center>⌂</p>  |
+| <p align=center>Phone  | <p align=center>818-916-3347   | <p align=center>🕽</p>  |
+| <p align=center>Email  | <p align=center>[RichardBashara@gmail.com](mailto:richardbashara@gmail.com)  | <p align=center>✉</p>  |
+| <p align=center>LinkedIn | <p align=center>[/in/richardbashara](https://www.linkedin.com/in/richardbashara/)  | <p align=center>💼</p>  |
 
 Technically savvy writer experienced in user-facing SaaS documentation, API documentation, copywriting, blogging, and technical whitepaper style content. Richard specializes in translating complicated technical topics into actionable resources. 
 
