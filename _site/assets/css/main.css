@@ -1,0 +1,11 @@
+/* 1. Keep the image small */
+.profile-circle {
+  float: right;                 /* pushes text to the left */
+  width: 250px;                  /* adjust size */
+  height: auto;                 /* maintain aspect ratio */
+  margin-left: 1rem;            /* space between image & text */
+  margin-bottom: 1rem;          /* optional – keeps line spacing nice */
+  border-radius: 50%;           /* makes it round */
+  border: 2px solid #ddd;       /* subtle border, optional */
+  display: block;               /* ensures float works as expected */
+}

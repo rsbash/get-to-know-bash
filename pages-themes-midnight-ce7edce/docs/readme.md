@@ -1,1 +1,0 @@
-Welcome to my personal repo of projects. Find my most up to date resume, and the most recent work samples I have available here. 

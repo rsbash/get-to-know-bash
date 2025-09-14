@@ -1,0 +1,4 @@
+source "https://rubygems.org"
+
+# The theme you want to use
+gem "jekyll-theme-midnight"
