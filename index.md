@@ -3,13 +3,10 @@ layout: default
 title: Home
 ---
 
-<link rel="stylesheet"
-      href="/assets/css/main.css">
-
+# Richard Bashara's Portfolio
+### Technical Writing Samples and Resume
 
 ![Richard Bashara, Technical Writer](./assets/images/me.jpg){: .profile-circle }
-
-Hello! My name is Richard Bashara, and I'd like to introduce myself. 
 
 I'm a results-driven professional experienced in delivering expert technical documentation for complex SaaS products. I am adept at translating highly technical concepts—including AI/ML-driven features—into clear and actionable resources to support enterprise IT teams, end users, and partner organizations. 
 
