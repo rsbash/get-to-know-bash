@@ -79,7 +79,6 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
-  jekyll (~> 4.3)
   jekyll-theme-midnight
 
 BUNDLED WITH
