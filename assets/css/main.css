@@ -1,7 +1,10 @@
 /* 1. Keep the image small */
 .profile-circle {
   float: right;                 /* pushes text to the left */
-  width: 250px;                  /* adjust size */
+  width: 25%;                  /* adjust size */
+  max-width: 250px;            /* Ensures size never exceeds 250px on a max width screen*/
+  min-width: 80px;             /* Accounting for extremely small sized screens */
+  aspect-ratio: 1/1;           /* Absolute Cinema before rendering the circlet */
   height: auto;                 /* maintain aspect ratio */
   margin-left: 1rem;            /* space between image & text */
   margin-bottom: 1rem;          /* optional – keeps line spacing nice */
