@@ -60,9 +60,10 @@ Lead documentarian and Subject Matter Expert (SME) for for a complex AI-enabled 
 
 Owned and scaled a 200+ page user guide, evolving from a small feature set into comprehensive enterprise-level documentation for a SaaS website monitoring suite.
 
-* Created partner-facing integration guides and troubleshooting documentation based on user feedback boosting feature adoption and awareness >20% YoY.
 * Collaborated with Site Reliability Engineers (SREs), product managers, and customer success to document regular feature updates and practical use cases.
 * Documented +150 API endpoints in collaboration with dev, generating interactive documentation including request/response schemas, error codes, authentication examples, and real-world usage using Swagger.
+* Authored SSO setup guides for AWS, Azure AD, Okta, with step-by-step setup and token exchange to validate SSO assertions. Documented common error scenarios with solutions, in collaboration with customer success team, reducing SSO support tickets by 22%. 
+* Created partner-facing integration guides and troubleshooting documentation based on user feedback boosting feature adoption and awareness >20% YoY.
 * Produced white papers, case studies, and thought leadership content for enterprise customers.
 * Produced video scripts, filmed brief instructional videos, and built a comprehensive knowledgebase that reduced support tickets by >30%.
 
