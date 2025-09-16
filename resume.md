@@ -62,7 +62,7 @@ Owned and scaled a 200+ page user guide, evolving from a small feature set into 
 
 * Created partner-facing integration guides and troubleshooting documentation based on user feedback boosting feature adoption and awareness >20% YoY.
 * Collaborated with Site Reliability Engineers (SREs), product managers, and customer success to document regular feature updates and practical use cases.
-* Documented API related features, including using the Uptime.com API with practical examples. 
+* Documented +150 API endpoints in collaboration with dev, generating interactive documentation including request/response schemas, error codes, authentication examples, and real-world usage using Swagger.
 * Produced white papers, case studies, and thought leadership content for enterprise customers.
 * Produced video scripts, filmed brief instructional videos, and built a comprehensive knowledgebase that reduced support tickets by >30%.
 
