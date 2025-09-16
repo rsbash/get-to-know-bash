@@ -9,7 +9,7 @@ title: My Resume
 |---|---|---|
 | Name | Richard Bashara | 🧑 |
 | City  | Los Angeles, Ca   | ⌂ |
-| Phone  | 818-916-3347   | 🕽  |
+| Phone  | ASK-ME   | 🕽  |
 | Email  | [RichardBashara@gmail.com](mailto:richardbashara@gmail.com)  | ✉  |
 | LinkedIn | [/in/richardbashara](https://www.linkedin.com/in/richardbashara/) | 💼  |
 

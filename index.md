@@ -3,30 +3,28 @@ layout: default
 title: Home
 ---
 
-# Richard Bashara's Portfolio
-### Technical Writing Samples and Resume
+# Richard Bashara | Portfolio
+### Tech Writer & Knowledge Management 
 
 ![Richard Bashara, Technical Writer](./assets/images/me.jpg){: .profile-circle }
 
-I'm a results-driven professional experienced in delivering expert technical documentation for complex SaaS products. I am adept at translating highly technical concepts—including AI/ML-driven features—into clear and actionable resources to support enterprise IT teams, end users, and partner organizations. 
-
-I thrive in environments that challenge me to learn and educate. I believe product mastery and an understanding of the user experience are critical to excellent technical writing. 
+My name is Richard, and I'm a creator at heart. I've written several manuals for SaaS and AI/ML enabled products that empower IT teams, end users, and my corporate partners to build great things. I thrive in environments where I am challenged with learning to educate, and am drawn to positions requiring technical writing, subject matter expertise, and product mastery.  
 
 I work in Agile/Scrum environments. I treat my docs like their own products, kicking off documentation lifecycles with key stakeholders, providing detailed specs of work to be done, and a comprehensive path toward regular documentation governance and maintenance. 
 
 My specialties include: 
-* Technical Writing 
-* Project Management 
-* Agile/Scrum 
+
+* Technical Writing & Documentation Lifecycles
+* Product-Focused Content Strategies
+* Agile/Scrum & Process Management
 * Documentation Lifecycle Management 
-* Stakeholder Alignment 
-* SaaS & AI Product Enablement 
-* Process Improvement 
-* Enterprise Client Support
+* Stakeholder and Enterprise Client Enablement 
 
-I am also community focused. Because I believe a better community starts with choices individuals make, I volunteer for both my local school system and local organizations.
+Beyond the office, I am community focused. Because I believe I can directly improve my community through action, I volunteer for both my local school system and local organizations.
 
-I am ready to put my skills to work for you. Thank you for reading my intro, please find:
+I am ready to write concise, actionable documentation for your organization to onboard its users with clarity and measured impact. 
+
+Thank you for reading my intro, please find:
 
 * [Work samples](work_samples.html)
 * [Resume](resume.html)
