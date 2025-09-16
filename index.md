@@ -22,9 +22,10 @@ My specialties include:
 
 Beyond the office, I am community focused. Because I believe I can directly improve my community through action, I volunteer for both my local school system and local organizations.
 
-I am ready to write concise, actionable documentation for your organization to onboard its users with clarity and measured impact. 
+I am ready to write concise, actionable documentation that accelerates user onboarding and delivers measurable impact. 
 
 Thank you for reading my intro, please find:
 
 * [Work samples](work_samples.html)
 * [Resume](resume.html)
+* [References](references.html)

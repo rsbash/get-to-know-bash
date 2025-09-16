@@ -9,6 +9,7 @@ title: My Writing Samples
 
 * [Support Documentation](https://docs.cogynt.com/)
 * [Axiomatic Digital Compass Support Documentation](https://tree-aftershave-f0f.notion.site/Axiomatic-Digital-Compass-Support-Document-8d540c8166304df8b2fc76112180ac73) - Instructions to use the Axiomatic Digital Compass for Android phones. 
+    * [Backup](Axiomatic Digital Compass Support Document\Axiomatic Digital Compass Support Document.htm)
 * [Uptime.com Documentation](https://support.uptime.com/hc/en-us) - Some highlighted examples below. I wrote the manual, but it has been updated over time. These articles are still largely my work:
     * [API Check Documentation](https://support.uptime.com/hc/en-us/articles/360001311589-API-Check-Basics) 
     * [API Documentation](https://support.uptime.com/hc/en-us/articles/360009681280-Getting-Started-with-the-Uptime-com-REST-API)
