@@ -79,7 +79,7 @@ B.A. in English (Emphasis on Writing) – California State University, Northridg
 
 * Established repeatable documentation workflows that cut release barriers by 30 % and increased technical accuracy across product lines.
 * Implemented analytics‑driven content strategies that reduced onboarding time by 30‑40 % and support tickets by 20 %.
-* Volunteered in local schools and community groups, championing literacy and digital‑inclusion initiatives.
+* Volunteer member of School Site Council, Parent-Teacher Organization, and a volunteer dog obedience trainer and webmaster for High Desert Obedience Club.
 
 > I am prepared to bring deep technical expertise, a user‑centric mindset, and a proven ability to manage knowledge assets to your organization.
 
