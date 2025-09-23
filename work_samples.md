@@ -23,9 +23,9 @@ From technical documentation examples to API docs, I've collected a series of ex
 
 ### Evergreen
 
-* [Sample API Documentation](\opd-api-docs-example.html) - Experimenting with ChatGPT to see if I can create and manage an API. Can function on localhost and accept calls. Documentation WIP.
-* [Axiomatic Digital Compass Support Documentation](\axiomatic-example.html) - Instructions to use the Axiomatic Digital Compass for Android phones. 
-    * [Axiomatic API Documentation](\axiomatic-api-docs-example.html) - A select few endpoints demonstrating a more real world use case. 
+* [Sample API Documentation](opd-api-docs-example.html) - Experimenting with ChatGPT to see if I can create and manage an API. Can function on localhost and accept calls. Documentation WIP.
+* [Axiomatic Digital Compass Support Documentation](axiomatic-example.html) - Instructions to use the Axiomatic Digital Compass for Android phones. 
+    * [Axiomatic API Documentation](axiomatic-api-docs-example.html) - A select few endpoints demonstrating a more real world use case. 
 
 
 ## General Writing Samples
