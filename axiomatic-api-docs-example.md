@@ -5,7 +5,7 @@ layout: default
 
 # Sample API Docs - Axiomatic Compass
 
-[Back](/work_samples.html)
+[Back](work_samples.html)
 
 The following document contains sample API endpoints and documentation for the Axiomatic Compass, a real application (but not a real API). This API example was created by ChatGPT and Gemma as an example of my documentation skills. 
 

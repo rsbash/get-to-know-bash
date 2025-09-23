@@ -5,7 +5,7 @@ layout: default
 
 # Sample API Docs - OPD Disc Trading
 
-[Back](/work_samples.html)
+[Back](work_samples.html)
 
 The following document contains sample API endpoints and documentation for OPD Disc Golf Trading, a fictional disc golf retailer. I used ChatGPT and Gemma to create a `products.json` sheet, and to devise a basic API to use and document. I can also run a localserver and demo some of these endpoints. This project was designed as an evergreen example of the API documentation I write. 
 
