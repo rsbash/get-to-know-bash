@@ -13,6 +13,13 @@ Contact richardbashara@gmail.com if you need help writing your API docs.
 
 > NOTE: THESE STEPS ARE HERE TO DEMONSTRATE DOCUMENTATION PROWESS ONLY. ALL ATTEMPTS TO UTILIZE THIS API WILL FAIL. 
 
+## Endpoints TOC
+
+1. [Authentication](#authentication)
+2. [GET Compass Heading](#get-v1compassheading)
+3. [POST General Settings](#post-v1compasssettingsgeneral)
+4. [POST Calibrate Compass](#post-v1compasscalibrate)
+5. [Common Errors](#common-errors)
 
 ## Authentication
 
@@ -84,6 +91,8 @@ curl -X POST "https://auth.axiomaticcompass.com/token" \
 
 ## GET /v1/compass/heading
 
+[Back](#endpoints-toc)
+
 Retrieve the device’s current heading, using `type`. Viable options include: `magnetic` or `true` navigation. 
 
 
@@ -125,6 +134,8 @@ GET "https://api.axiomaticcompass.com/v1/compass/heading?type=magnetic&includeAc
 
 
 ## POST /v1/compass/settings/general
+
+[Back](#endpoints-toc)
 
 Toggles user preferences.
 
@@ -175,6 +186,8 @@ Response, `200 OK`:
 
 ## POST /v1/compass/calibrate
 
+[Back](#endpoints-toc)
+
 Initiates the calibration routine. See [documentation for details](./axiomatic-example.html).
 
 
@@ -219,6 +232,8 @@ POST "https://api.axiomaticcompass.com/v1/compass/calibrate?mode=full"
 
 
 ## Common Errors
+
+[Back](#endpoints-toc)
 
 | Status Code | Detail | Example Response |
 | ----------- | ------ | ---------------- |
