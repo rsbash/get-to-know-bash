@@ -3,7 +3,7 @@ title: Axiomatic API Example
 layout: default
 ---
 
-# Sample API Docs - OPD Disc Trading
+# Sample API Docs - Axiomatic Compass
 
 [Back](/work_samples.html)
 
