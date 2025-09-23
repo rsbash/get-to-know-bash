@@ -1,0 +1,1 @@
+My name is Richard, and I’ve written several manuals for SaaS and AI/ML enabled products that empower IT teams, end users, and my corporate partners to build great things. [Get to know me better here.](https://rsbash.github.io/get-to-know-bash/index.html) 
