@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Axiomatic API Example | Get to Know Bash</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Axiomatic API Example" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Find the resume and work samples of Richard Bashara here." />
+<meta property="og:description" content="Find the resume and work samples of Richard Bashara here." />
+<link rel="canonical" href="http://localhost:4000/axiomatic-api-docs-example.html" />
+<meta property="og:url" content="http://localhost:4000/axiomatic-api-docs-example.html" />
+<meta property="og:site_name" content="Get to Know Bash" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Axiomatic API Example" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Find the resume and work samples of Richard Bashara here.","headline":"Axiomatic API Example","url":"http://localhost:4000/axiomatic-api-docs-example.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="/assets/js/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="/assets/css/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <ul>
+            <li class="fork"><a href="">View On GitHub</a></li>
+            
+              <li class="downloads"><a href="">ZIP</a></li>
+              <li class="downloads"><a href="">TAR</a></li>
+              <li class="title">DOWNLOADS</li>
+            
+          </ul>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Get to Know Bash</h1>
+          <p>Find the resume and work samples of Richard Bashara here.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href=""></a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></span>
+        </div>
+
+        <h1 id="sample-api-docs---opd-disc-trading">Sample API Docs - OPD Disc Trading</h1>
+
+<p><a href="/work_samples.html">Back</a></p>
+
+<p>The following document contains sample API endpoints and documentation for the Axiomatic Compass, a real application (but not a real API). This API example was created by ChatGPT and Gemma as an example of my documentation skills.</p>
+
+<p>Contact richardbashara@gmail.com if you need help writing your API docs.</p>
+
+<blockquote>
+  <p>NOTE: THESE STEPS ARE HERE TO DEMONSTRATE DOCUMENTATION PROWESS ONLY. ALL ATTEMPTS TO UTILIZE THIS API WILL FAIL.</p>
+</blockquote>
+
+<h2 id="authentication">Authentication</h2>
+
+<p><a href="#endpoints-toc">Back</a></p>
+
+<p>All protected endpoints (POST, PATCH, and DELETE) require a Bearer token attached to the Authorization header, which is issued by our OAuth‑2.0 client‑credentials flow.</p>
+
+<ul>
+  <li>You are issued a JSON Web Token (JWT)</li>
+  <li>The token is short lived</li>
+</ul>
+
+<p>Request tokens as follows:</p>
+
+<h3 id="step-one--client-registration">Step One | Client Registration</h3>
+
+<p>A token requires you to have a client ID / secret pair. Register your application at</p>
+
+<p>https://auth.axiomaticcompass.com/register</p>
+
+<p>The response you receive will contain the following:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Example</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">client_id</code></td>
+      <td>abcd1234</td>
+      <td>Your public identifier.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">client_secret</code></td>
+      <td>fghijklmnop</td>
+      <td>Never expose this.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">scope</code></td>
+      <td><code class="language-plaintext highlighter-rouge">products:read products:write</code></td>
+      <td>Scopes you request.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="step-two--request-a-token-and-define-scope">Step Two | Request a Token and Define Scope</h3>
+
+<p>Once registered, request a token:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Body Parameter</td>
+      <td>Type</td>
+      <td>Required</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">grant_type</code></td>
+      <td>String</td>
+      <td>Required</td>
+      <td>Must be <code class="language-plaintext highlighter-rouge">client_credentials</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">client_id</code></td>
+      <td>String</td>
+      <td>Required</td>
+      <td>Your client ID.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">client_secret</code></td>
+      <td>String</td>
+      <td>Required</td>
+      <td>Your client secret.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">scope</code></td>
+      <td>String</td>
+      <td>Optional</td>
+      <td>Space‑separated list of scopes.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Sample request follows (cURL):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://auth.axiomaticcompass.com/token"</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span> <span class="se">\</span>
+     <span class="nt">-d</span> <span class="s2">"grant_type=client_credentials"</span> <span class="se">\</span>
+     <span class="nt">-d</span> <span class="s2">"client_id=demo_client_id"</span> <span class="se">\</span>
+     <span class="nt">-d</span> <span class="s2">"client_secret=demo_client_secret"</span> <span class="se">\</span>
+     <span class="nt">-d</span> <span class="s2">"scope=products:read%20products:write"</span>
+
+</code></pre></div></div>
+
+<h3 id="successful-response-json">Successful response (JSON)</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"products:read products:write"</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">access_token</code> - The JWT for use.
+<code class="language-plaintext highlighter-rouge">expires_in</code> - Measured in seconds.
+<code class="language-plaintext highlighter-rouge">scope</code> - Scopes granted to this token.</p>
+
+<blockquote>
+  <p>Usage is described as needed for each relevant endpoint.</p>
+</blockquote>
+
+<h2 id="get-v1compassheading">GET /v1/compass/heading</h2>
+
+<p>Retrieve the device’s current heading, using <code class="language-plaintext highlighter-rouge">type</code>. Viable options include: <code class="language-plaintext highlighter-rouge">magnetic</code> or <code class="language-plaintext highlighter-rouge">true</code> navigation.</p>
+
+<h3 id="headers">Headers</h3>
+
+<p>This endpoint uses the GET method. This header is required:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Accept: application/json</code></li>
+</ul>
+
+<h3 id="url">URL</h3>
+
+<p>GET https://api.axiomaticcompass.com/v1/compass/heading</p>
+
+<h3 id="example-request">Example Request</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Required</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
+      <td>String</td>
+      <td>No</td>
+      <td>Selects <code class="language-plaintext highlighter-rouge">magnetic</code> or <code class="language-plaintext highlighter-rouge">true</code> navigation modes. (default: magnetic). See <a href="./_site/axiomatic-example.html">support guide</a> for details.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">includeAccuracy</code></td>
+      <td>Boolean</td>
+      <td>No</td>
+      <td>Returns accuracy in <code class="language-plaintext highlighter-rouge">degrees</code> if <code class="language-plaintext highlighter-rouge">true</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET <span class="s2">"https://api.axiomaticcompass.com/v1/compass/heading?type=magnetic&amp;includeAccuracy=true"</span>
+  <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> 
+
+</code></pre></div></div>
+
+<h3 id="example-response">Example Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"heading"</span><span class="p">:</span><span class="w"> </span><span class="mf">78.3</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"accuracy"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"degrees"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"magnetic"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="post-v1compasssettingsgeneral">POST /v1/compass/settings/general</h2>
+
+<p>Toggles user preferences.</p>
+
+<h3 id="url-1">URL</h3>
+
+<p>POST https://api.axiomaticcompass.com/v1/compass/settings/general</p>
+
+<h3 id="headers-1">Headers</h3>
+
+<p>This endpoint uses the POST method, and is protected. These headers are required:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Content-Type: application/json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Authorization: Bearer &lt;access_token&gt;</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Accept: application/json</code> - Optional, but recommended</li>
+</ul>
+
+<h3 id="example-request-1">Example Request</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">showMagneticField</code></td>
+      <td>Boolean</td>
+      <td>No</td>
+      <td>Toggles display phone’s magnetic field strength.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">keepScreenOn</code></td>
+      <td>Boolean</td>
+      <td>No</td>
+      <td>Toggles screen display.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST <span class="s2">"https://api.axiomaticcompass.com/v1/compass/settings/general"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer &lt;access_token&gt;"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{"showMagneticField":"false","keepScreenOn":"true"}'</span> 
+
+</code></pre></div></div>
+
+<h3 id="example-response-1">Example Response</h3>
+
+<p>Response, <code class="language-plaintext highlighter-rouge">200 OK</code>:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-09-22T14:37:00Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<h2 id="post-v1compasscalibrate">POST /v1/compass/calibrate</h2>
+
+<p>Initiates the calibration routine. See <a href="./axiomatic-example.html">documentation for details</a>.</p>
+
+<h3 id="url-2">URL</h3>
+
+<p>POST https://api.axiomaticcompass.com/v1/compass/calibrate</p>
+
+<h3 id="headers-2">Headers</h3>
+
+<p>This endpoint uses the POST method, and is protected. These headers are required:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Accept: application/json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Authorization: Bearer &lt;access_token&gt;</code></li>
+</ul>
+
+<h3 id="example-request-2">Example Request</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mode</code></td>
+      <td>String</td>
+      <td>Yes</td>
+      <td>Viable options include: <code class="language-plaintext highlighter-rouge">full</code> and <code class="language-plaintext highlighter-rouge">quick</code>. See <a href="./axiomatic-example.html">documentation for details</a>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST <span class="s2">"https://api.axiomaticcompass.com/v1/compass/calibrate?mode=full"</span>
+  <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: Bearer &lt;access_token&gt;"</span> 
+
+</code></pre></div></div>
+
+<h3 id="example-response-2">Example Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"calibrationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inProgress"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"estimatedDuration"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w">   
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">estimatedDuration</code> - Measured in seconds.</p>
+
+<h2 id="common-errors">Common Errors</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status Code</th>
+      <th>Detail</th>
+      <th>Example Response</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>400 Bad Request.</td>
+      <td>Invalid query parameters.</td>
+      <td><code class="language-plaintext highlighter-rouge">{"error": {"code": "INVALID_QUERY","message": "..."}}</code></td>
+    </tr>
+    <tr>
+      <td>401 Unauthorized</td>
+      <td>Missing or invalid <code class="language-plaintext highlighter-rouge">Authorization</code> token</td>
+      <td><code class="language-plaintext highlighter-rouge">{"error": {"code": "UNAUTHORIZED","message": "..."}}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+
+      </section>
+
+    </div>
+  </body>
+</html>
