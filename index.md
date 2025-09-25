@@ -24,5 +24,5 @@ Beyond the office, I am community focused. Because I believe I can directly impr
 I am ready to write concise, actionable documentation that accelerates user onboarding and delivers measurable impact for you. 
 
 * [Work samples](work_samples.html)
-* [Resume](resume.html)
+* [Resume](resume-tw.html)
 * [References](references.html)
