@@ -9,7 +9,7 @@ title: My Resume
 
 ## RICHARD BASHARA | Senior-Level Technical Writer
 
-Los Angeles, CA | (818) 916‑3347 | RichardBashara@gmail.com | [LinkedIn](https://linkedin.com/in/richardbashara) | [Work Samples](work_samples.html)  
+Los Angeles, CA | ASK ME | RichardBashara@gmail.com | [LinkedIn](https://linkedin.com/in/richardbashara) | [Work Samples](work_samples.html)  
 
 ---
 
