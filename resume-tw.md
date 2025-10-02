@@ -86,6 +86,7 @@ California State University, Northridge
 
 ### CERTIFICATIONS & CONTINUING EDUCATION  
 
+- **OCI Associate (ACTIVE)** - Foundational knowledge of public cloud services provided by Oracle. [View verification](https://catalog-education.oracle.com/ords/certview/sharebadge?id=CBA27920B8A650A253C03C1877438A98B3D318CB6D6387B8533700780228BDEA)
 - **CompTIA A+ (Expired – foundational hardware knowledge)**  
 - Ongoing coursework in **Product Management** and **Medical Technical Writing** (expected certification 2025)  
 
