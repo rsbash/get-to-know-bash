@@ -23,6 +23,47 @@
 
     <link rel="stylesheet" href="/assets/css/style.css?v=">
     <link rel="stylesheet" href="/assets/css/main.css">
+<script>
+// Function to expand details when hash link is clicked
+function expandAncestorDetails(element) {
+  let parent = element.parentElement;
+  while (parent) {
+    if (parent.tagName === 'DETAILS') {
+      parent.open = true;
+    }
+    parent = parent.parentElement;
+  }
+}
+
+// Handle direct navigation to hash URLs
+if (window.location.hash) {
+  const targetElement = document.querySelector(window.location.hash);
+  if (targetElement) {
+    expandAncestorDetails(targetElement);
+    // Smooth scroll to the element
+    targetElement.scrollIntoView();
+  }
+}
+
+// Handle clicks on TOC links
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.toc a[href^="#"]');
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        e.preventDefault();
+        expandAncestorDetails(targetElement);
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+        // Update URL hash
+        history.pushState(null, null, targetId);
+      }
+    });
+  });
+});
+</script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>

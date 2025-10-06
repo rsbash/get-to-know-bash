@@ -23,6 +23,47 @@
 
     <link rel="stylesheet" href="/assets/css/style.css?v=">
     <link rel="stylesheet" href="/assets/css/main.css">
+<script>
+// Function to expand details when hash link is clicked
+function expandAncestorDetails(element) {
+  let parent = element.parentElement;
+  while (parent) {
+    if (parent.tagName === 'DETAILS') {
+      parent.open = true;
+    }
+    parent = parent.parentElement;
+  }
+}
+
+// Handle direct navigation to hash URLs
+if (window.location.hash) {
+  const targetElement = document.querySelector(window.location.hash);
+  if (targetElement) {
+    expandAncestorDetails(targetElement);
+    // Smooth scroll to the element
+    targetElement.scrollIntoView();
+  }
+}
+
+// Handle clicks on TOC links
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.toc a[href^="#"]');
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        e.preventDefault();
+        expandAncestorDetails(targetElement);
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+        // Update URL hash
+        history.pushState(null, null, targetId);
+      }
+    });
+  });
+});
+</script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -92,379 +133,357 @@
 <h2 id="endpoints-toc">Endpoints TOC</h2>
 
 <ol>
-  <li><a href="#authentication">Authentication</a></li>
-  <li><a href="#get-products">GET /products</a></li>
-  <li><a href="#get-products-by-id">GET /products by ID</a></li>
-  <li><a href="#post-products-create-a-new-product">POST /products Create a New Product</a></li>
-  <li><a href="#patch-update-product">PATCH /products Update a Product</a></li>
-  <li><a href="#delete-delete-a-product">DELETE /products Delete a Product</a></li>
+  <li><a href="#authentication">Authentication</a>
+    <ol>
+      <li><a href="#register-your-client">Register Your Client</a></li>
+      <li><a href="#request-a-token">Request a Token</a></li>
+    </ol>
+  </li>
+  <li><a href="#api-endpoints">API Endpoints</a>
+    <ol>
+      <li><a href="#get-products-by-id">GET /products by ID</a></li>
+      <li><a href="#post-products-create-a-new-product">POST /products Create a New Product</a></li>
+      <li><a href="#patch-update-product">PATCH /products Update a Product</a></li>
+      <li><a href="#delete-a-product">DELETE /products Delete a Product</a></li>
+    </ol>
+  </li>
+  <li><a href="#best-practices">Best Practices</a></li>
 </ol>
 
 <h2 id="authentication">Authentication</h2>
 
-<p><a href="#endpoints-toc">Back</a></p>
-
 <p>All protected endpoints (POST, PATCH, and DELETE) require a Bearer token attached to the Authorization header. The token is issued by our OAuth‑2.0 client‑credentials flow and is a short‑lived JSON Web Token (JWT).</p>
 
-<p>To obtain a token, follow these steps:</p>
+<p>To obtain a token, You need to already have an account with OPD developer services. In addition, you must also:</p>
 
-<h3 id="register-the-client">Register the client</h3>
+<ul>
+  <li>
+    <p>Authenticate your device by a publicly identifiable <code class="language-plaintext highlighter-rouge">client_id</code>.</p>
+  </li>
+  <li>
+    <p>Request a token to make changes with your registered device.</p>
+  </li>
+</ul>
 
-<p>A token requires you to have a client ID / secret pair. Register your application at</p>
+<p>Follow these steps to get started:</p>
+<details>
+<summary>
+<h3 id="register-your-client"> Step One | Register Your client_id</h3>
+</summary>
+<div>
 
-<p>https://auth.opddiscgolftrading.com/register</p>
+    <p>The first step is to send a POST request to the following URL:</p>
 
-<p>You will receive a response containing the following:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://auth.opddiscgolftrading.com/register"</span>
+</code></pre></div>    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Example</th>
-      <th>Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">client_id</code></td>
-      <td>abcd1234</td>
-      <td>Your public identifier.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">client_secret</code></td>
-      <td>fghijklmnop</td>
-      <td>Never expose this.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">scope</code></td>
-      <td>products:read products:write</td>
-      <td>Scopes you request.</td>
-    </tr>
-  </tbody>
-</table>
+    <p>These fields are required:</p>
 
-<h3 id="request-a-token">Request a token</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Type</th>
+          <th>Example</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">client_id</code></td>
+          <td>string</td>
+          <td><code class="language-plaintext highlighter-rouge">myClient</code></td>
+          <td>The publicly available name that will be assigned to your device. You choose this.</td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">username</code></td>
+          <td>string</td>
+          <td><code class="language-plaintext highlighter-rouge">username</code></td>
+          <td>The username you used when you registered as an OPD developer.</td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">password</code></td>
+          <td>string</td>
+          <td><code class="language-plaintext highlighter-rouge">password</code></td>
+          <td>The password you used to sign up for OPD developer services.</td>
+        </tr>
+      </tbody>
+    </table>
 
-<p>Once registered, request a token:</p>
+    <p>This example POST request contains all required fields:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST https://auth.opddiscgolftrading.com/token
-Content-Type: application/x-www-form-urlencoded
-</code></pre></div></div>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://auth.opddiscgolftrading.com/token"</span> <span class="se">\ </span> 
+     <span class="nt">-H</span> <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span> <span class="se">\ </span> 
+     <span class="nt">-d</span> <span class="s2">"client_id=clientId"</span> <span class="se">\ </span> 
+     <span class="nt">-d</span> <span class="s2">"username=username"</span> <span class="se">\</span>
+     <span class="nt">-d</span> <span class="s2">"password=password"</span>
+</code></pre></div>    </div>
 
-<table>
-  <tbody>
-    <tr>
-      <td>Body Parameter</td>
-      <td>Type</td>
-      <td>Required</td>
-      <td>Description</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">grant_type</code></td>
-      <td>String</td>
-      <td>Required</td>
-      <td>Must be <code class="language-plaintext highlighter-rouge">client_credentials</code>.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">client_id</code></td>
-      <td>String</td>
-      <td>Required</td>
-      <td>Your client ID.</td>
-    </tr>
-    <tr>
-      <td>client_secret</td>
-      <td>String</td>
-      <td>Required</td>
-      <td>Your client secret.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">scope</code></td>
-      <td>String</td>
-      <td>Optional</td>
-      <td>Space‑separated list of scopes.</td>
-    </tr>
-  </tbody>
-</table>
+    <p>You will receive a response containing the following elements:</p>
 
-<h3 id="sample-request-curl">Sample Request (cURL)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Type</th>
+          <th>Example</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">client_id</code></td>
+          <td>string</td>
+          <td><code class="language-plaintext highlighter-rouge">myClient</code></td>
+          <td>Your public identifier.</td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">client_secret</code></td>
+          <td>string</td>
+          <td><code class="language-plaintext highlighter-rouge">clientSecret</code></td>
+          <td>Never expose this.</td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">scope</code></td>
+          <td>string</td>
+          <td><code class="language-plaintext highlighter-rouge">products:write</code>, <code class="language-plaintext highlighter-rouge">products:delete</code></td>
+          <td>A comma separated list of scopes granted to your <code class="language-plaintext highlighter-rouge">client_id</code>.</td>
+        </tr>
+      </tbody>
+    </table>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://auth.opddiscgolftrading.com/token"</span> <span class="se">\</span>
+    <h3 id="response-examples">Response Examples</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>201 Created</td>
+          <td>Success - A JSON object is returned containing relevant details for your device, inclduing your <code class="language-plaintext highlighter-rouge">client_secret</code>.</td>
+        </tr>
+        <tr>
+          <td>400 Bad Request</td>
+          <td>Invalid query parameters. Check the <code class="language-plaintext highlighter-rouge">username</code> and <code class="language-plaintext highlighter-rouge">password</code>.</td>
+        </tr>
+        <tr>
+          <td>401 Unauthorized</td>
+          <td>You do not have authorization to access developer resources.</td>
+        </tr>
+        <tr>
+          <td>500 Internal Server Error</td>
+          <td>Unexpected server issue. Check our status page, and then contact support if the call fails repeatedly.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>A successful response when requesting a client secret for your device looks like this:</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myClient"</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"client_secret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"clientSecret"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="p">,</span><span class="w"> 
+  </span><span class="nl">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"products:write, products:delete"</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div>    </div>
+  </div>
+</details>
+
+<details>
+<summary>
+<h3 id="request-a-token">Step Two | Request a Token</h3>
+</summary>
+<div>
+
+    <p>Once your <code class="language-plaintext highlighter-rouge">client_id</code> has been registered with a <code class="language-plaintext highlighter-rouge">client_secret</code>, you can use both to request a token:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://auth.opddiscgolftrading.com/token"</span> <span class="se">\</span>
      <span class="nt">-H</span> <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span> <span class="se">\</span>
-     <span class="nt">-d</span> <span class="s2">"grant_type=client_credentials"</span> <span class="se">\</span>
-     <span class="nt">-d</span> <span class="s2">"client_id=demo_client_id"</span> <span class="se">\</span>
-     <span class="nt">-d</span> <span class="s2">"client_secret=demo_client_secret"</span> <span class="se">\</span>
-     <span class="nt">-d</span> <span class="s2">"scope=products:read%20products:write"</span>
+     <span class="nt">-d</span> <span class="s2">"client_id=clientId"</span> <span class="se">\</span>
+     <span class="nt">-d</span> <span class="s2">"client_secret=clientSecret"</span> 
+</code></pre></div>    </div>
 
-</code></pre></div></div>
+    <p>Your request must include all required values listed below:</p>
 
-<h3 id="successful-response-json">Successful response (JSON)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Body Parameter</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">client_id</code></td>
+          <td>String</td>
+          <td>Required</td>
+          <td>Your client ID.</td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">client_secret</code></td>
+          <td>String</td>
+          <td>Required</td>
+          <td>Your client secret.</td>
+        </tr>
+      </tbody>
+    </table>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    <p>The successful JSON response looks like this:</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."</span><span class="p">,</span><span class="w"> 
   </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="p">,</span><span class="w"> 
-  </span><span class="nl">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"products:read products:write"</span><span class="w"> 
+  </span><span class="nl">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"products:write products:delete"</span><span class="w"> 
 </span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
 
-</span></code></pre></div></div>
-<p><code class="language-plaintext highlighter-rouge">access_token</code> - The JWT for use.
-<code class="language-plaintext highlighter-rouge">expires_in</code> - Measured in seconds.
-<code class="language-plaintext highlighter-rouge">scope</code> - Scopes granted to this token.</p>
+    <p>A successful response always contains these elements:</p>
 
-<blockquote>
-  <p>Usage is described as needed for relevant endpoints.</p>
-</blockquote>
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Type</th>
+          <th>Example</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">access_token</code></td>
+          <td>string</td>
+          <td><code class="language-plaintext highlighter-rouge">"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."</code></td>
+          <td>Your access token. Never reveal this.</td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">token_type</code></td>
+          <td>string</td>
+          <td><code class="language-plaintext highlighter-rouge">"bearer"</code></td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">expires_in</code></td>
+          <td>number</td>
+          <td><code class="language-plaintext highlighter-rouge">3600</code></td>
+          <td>measured in seconds. Default is 3600, or 1 hour</td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">scope</code></td>
+          <td>string</td>
+          <td><code class="language-plaintext highlighter-rouge">"products:write products:delete"</code></td>
+          <td>The token is authorized to utilize endpoints within these scopes.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <blockquote>
+      <p>Usage is described as needed for relevant endpoints.</p>
+    </blockquote>
+
+    <hr />
+  </div>
+</details>
+
+<h2 id="api-endpoints">API Endpoints</h2>
 
 <hr />
-
-<h2 id="get-products">GET /products</h2>
-
-<p><a href="#endpoints-toc">Back</a></p>
-
-<p>Retrieve a paginated list of all products</p>
-
-<h3 id="request">Request</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Type</th>
-      <th>Required</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>page</strong></td>
-      <td>Number</td>
-      <td>Optional</td>
-      <td>Begin showing results starting on this page. Default is <code class="language-plaintext highlighter-rouge">1</code>.</td>
-    </tr>
-    <tr>
-      <td><strong>pageSize</strong></td>
-      <td>Number</td>
-      <td>Optional</td>
-      <td>Number of items returned per page. Default is <code class="language-plaintext highlighter-rouge">20</code> and max is <code class="language-plaintext highlighter-rouge">100</code>.</td>
-    </tr>
-    <tr>
-      <td><strong>sort</strong></td>
-      <td>String</td>
-      <td>Optional</td>
-      <td>Sort results according to: <code class="language-plaintext highlighter-rouge">productId</code>, <code class="language-plaintext highlighter-rouge">name</code>, <code class="language-plaintext highlighter-rouge">price</code>, and <code class="language-plaintext highlighter-rouge">category</code>. Default sort is <code class="language-plaintext highlighter-rouge">name</code>.</td>
-    </tr>
-    <tr>
-      <td><strong>order</strong></td>
-      <td>String</td>
-      <td>Optional</td>
-      <td>Order results, either ascending <code class="language-plaintext highlighter-rouge">asc</code>, or descending <code class="language-plaintext highlighter-rouge">desc</code>. The default value is <code class="language-plaintext highlighter-rouge">asc</code>.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="url">URL</h3>
-
-<p>GET https://api.opddiscgolftrading.com/v1/products</p>
-
-<h3 id="headers">Headers</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Key</th>
-      <th>Value</th>
-      <th>Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Accept</code></td>
-      <td><code class="language-plaintext highlighter-rouge">application/json</code></td>
-      <td>Required value.</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>GET is the HTTP verb used for this call.</p>
-</blockquote>
-
-<h3 id="sample-request">Sample Request</h3>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://api.opddiscgolftrading.com/v1/products?pageSize=50&amp;sort=price&amp;order=asc"</span> <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span>
-</code></pre></div></div>
-
-<h3 id="responses">Responses</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Status</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>200 OK</td>
-      <td>Success - A JSON object is returned containing pagination info and an array of products.</td>
-    </tr>
-    <tr>
-      <td>400 Bad Request</td>
-      <td>Invalid query parameters.</td>
-    </tr>
-    <tr>
-      <td>500 Internal Server Error</td>
-      <td>Unexpected server issue. Check our status page, and then contact support if the call fails repeatedly.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="successful-response-example">Successful Response Example</h4>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ODP10001"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Innova Destroyer"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Distance Driver"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A stable distance driver."</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Discs"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.99</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"flightNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"speed"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"glide"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"turn"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"fade"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="err">/*</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="err">up</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="err">items</span><span class="w"> </span><span class="err">per</span><span class="w"> </span><span class="err">page</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="err">*/</span><span class="w">    
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h4 id="unsuccessful-response-example">Unsuccessful Response Example</h4>
-
-<p><strong>400 Bad Request</strong></p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INVALID_QUERY"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Check query parameters. "</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>500 Internal Server Error</strong></p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SERVER_ERROR"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An unexpected error occurred. Please try again later."</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<h3 id="sample-use-cases">Sample Use Cases</h3>
-
-<p>Creating a mobile app that displays a list of discs from the ODP store:</p>
-
-<ol>
-  <li>Call <code class="language-plaintext highlighter-rouge">GET /products?pageSize=20&amp;sort=name&amp;order=asc</code>.</li>
-  <li>Render <code class="language-plaintext highlighter-rouge">items</code> as a scrollable list.</li>
-  <li>When the user reaches the bottom, increment <code class="language-plaintext highlighter-rouge">page</code> and request the next batch.</li>
-</ol>
-
-<hr />
-
-<h2 id="get-products-by-id">GET /products by ID</h2>
-
-<p><a href="#endpoints-toc">Back</a></p>
+<h3 id="get-products-by-id">GET /products by ID</h3>
 
 <p>Returns a specific product based on its Id value.</p>
 
-<h3 id="request-1">Request</h3>
+<details>
+<summary>
+<h4> Request Details</h4>
+</summary>
+<div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Type</th>
-      <th>Required</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>{productId}</strong></td>
-      <td>String</td>
-      <td>Required</td>
-      <td>Returns this productId. Use <code class="language-plaintext highlighter-rouge">GET /products</code> to retrieve product Ids. Case insensitive.</td>
-    </tr>
-  </tbody>
-</table>
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>{productId}</strong></td>
+          <td>String</td>
+          <td>Required</td>
+          <td>Returns this productId. Use <code class="language-plaintext highlighter-rouge">GET /products</code> to retrieve product Ids. Case insensitive.</td>
+        </tr>
+      </tbody>
+    </table>
 
-<h3 id="url-1">URL</h3>
+    <h4 id="url">URL</h4>
 
-<p>GET https://api.opddiscgolftrading.com/v1/products/{productId}</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> GET https://api.opddiscgolftrading.com/v1/products/<span class="o">{</span>productId<span class="o">}</span>
+</code></pre></div>    </div>
 
-<h3 id="headers-1">Headers</h3>
+    <h4 id="headers">Headers</h4>
 
-<table>
-  <thead>
-    <tr>
-      <th>Key</th>
-      <th>Value</th>
-      <th>Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Accept</code></td>
-      <td><code class="language-plaintext highlighter-rouge">application/json</code></td>
-      <td>Required value.</td>
-    </tr>
-  </tbody>
-</table>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">Accept</code></td>
+          <td><code class="language-plaintext highlighter-rouge">application/json</code></td>
+          <td>Required value.</td>
+        </tr>
+      </tbody>
+    </table>
 
-<blockquote>
-  <p>GET is the HTTP verb used for this call.</p>
-</blockquote>
+    <blockquote>
+      <p>GET is the HTTP verb used for this call.</p>
+    </blockquote>
 
-<h3 id="sample-request-1">Sample Request</h3>
+    <h4 id="sample-request">Sample Request</h4>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://api.opddiscgolftrading.com/v1/products/opd1001"</span> <span class="se">\</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://api.opddiscgolftrading.com/v1/products/opd1001"</span> <span class="se">\</span>
      <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span>
-</code></pre></div></div>
+</code></pre></div>    </div>
 
-<h3 id="responses-1">Responses</h3>
+    <h4 id="responses">Responses</h4>
 
-<table>
-  <thead>
-    <tr>
-      <th>Status</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>200 OK</td>
-      <td>Success - A JSON object is returned containing pagination info and an array of products.</td>
-    </tr>
-    <tr>
-      <td>404 Not Found</td>
-      <td><code class="language-plaintext highlighter-rouge">productId</code> does not exist.</td>
-    </tr>
-  </tbody>
-</table>
+    <table>
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>200 OK</td>
+          <td>Success - A JSON object is returned containing pagination info and an array of products.</td>
+        </tr>
+        <tr>
+          <td>404 Not Found</td>
+          <td><code class="language-plaintext highlighter-rouge">productId</code> does not exist.</td>
+        </tr>
+      </tbody>
+    </table>
 
-<h4 id="successful-response-example-1">Successful Response Example</h4>
+    <h5 id="successful-response-example">Successful Response Example</h5>
 
-<p>Returns product with Id value <code class="language-plaintext highlighter-rouge">OPD10001</code>.</p>
+    <p>Returns product with Id value <code class="language-plaintext highlighter-rouge">OPD10001</code>.</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPD10001"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Innova Destroyer"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Distance Driver"</span><span class="p">,</span><span class="w">
@@ -478,143 +497,157 @@ Content-Type: application/x-www-form-urlencoded
     </span><span class="nl">"fade"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
 
-</span></code></pre></div></div>
+    <h5 id="unsuccessful-response-example">Unsuccessful Response Example</h5>
 
-<h4 id="unsuccessful-response-example-1">Unsuccessful Response Example</h4>
+    <p><strong>404 Not Found</strong></p>
 
-<p><strong>404 Not Found</strong></p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
 </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOT FOUND"</span><span class="p">,</span><span class="w">
 </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No product was found for this `productId`."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
+</span></code></pre></div>    </div>
+
+  </div>
+</details>
 
 <hr />
 
-<h2 id="post-products-create-a-new-product">POST /products Create a New Product</h2>
+<h3 id="post-products-create-a-new-product">POST /products Create a New Product</h3>
 
-<p><a href="#endpoints-toc">Back</a></p>
+<p>Create a new product entry. <a href="#authentication">Authorization</a> is required for this admin only endpoint. Use of <code class="language-plaintext highlighter-rouge">v1</code> endpoint for single requests is recommended for responsiveness. Use <code class="language-plaintext highlighter-rouge">v2</code> endpoint to add multiple items with a single request.</p>
 
-<p>Create a new product entry. Authorization is required for this admin only endpoint.</p>
+<details>
+<summary>
+<h4> Request Details</h4>
+</summary>
+<div>
 
-<h3 id="url-2">URL</h3>
+    <p><strong>v1 Endpoint to Add a Single Item</strong></p>
 
-<p>POST https://api.opddiscgolftrading.com/v1/products</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+curl <span class="nt">-X</span> POST <span class="s2">"https://api.opddiscgolftrading.com/v1/products"</span>
+</code></pre></div>    </div>
 
-<h3 id="headers-2">Headers</h3>
+    <p><strong>v2 Endpoint to Add Multiple Items</strong></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Key</th>
-      <th>Value</th>
-      <th>Notes</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Accept</code></td>
-      <td><code class="language-plaintext highlighter-rouge">application/json</code></td>
-      <td>Required value.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
-      <td>Bearer {access_token}</td>
-      <td>Required</td>
-      <td>Admin only endpoint.</td>
-    </tr>
-  </tbody>
-</table>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+curl <span class="nt">-X</span> POST <span class="s2">"https://api.opddiscgolftrading.com/v2/products"</span>
+</code></pre></div>    </div>
 
-<blockquote>
-  <p>POST is the HTTP verb used for this call.</p>
-</blockquote>
+    <h4 id="headers-1">Headers</h4>
 
-<h3 id="request-body">Request Body</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+          <th>Notes</th>
+          <th> </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">Accept</code></td>
+          <td><code class="language-plaintext highlighter-rouge">application/json</code></td>
+          <td>Required value.</td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+          <td>Bearer {access_token}</td>
+          <td>Required</td>
+          <td>Admin only endpoint. See <a href="#authentication">Authentication</a> for instructions.</td>
+        </tr>
+      </tbody>
+    </table>
 
-<ul>
-  <li>This API does not support bulk requests. Use one request per product to be added.</li>
-  <li>This POST endpoint requires authorization with <code class="language-plaintext highlighter-rouge">Bearer: {access_token}</code>.</li>
-</ul>
+    <blockquote>
+      <p>POST is the HTTP verb used for this call.</p>
+    </blockquote>
 
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Type</th>
-      <th>Required</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>productId</strong></td>
-      <td>String</td>
-      <td>Optional</td>
-      <td>8-character string for <code class="language-plaintext highlighter-rouge">productId</code>. If no productId is specified, or if the productId already exists, a productId will be assigned at time of creation.</td>
-    </tr>
-    <tr>
-      <td><strong>name</strong></td>
-      <td>String</td>
-      <td>Required</td>
-      <td>Product name, displayed as an H1 on the product page. Searchable.</td>
-    </tr>
-    <tr>
-      <td><strong>type</strong></td>
-      <td>String</td>
-      <td>Optional</td>
-      <td>Only for Discs. Type denotes the type of disc. Viable options include: <code class="language-plaintext highlighter-rouge">distance driver</code>, <code class="language-plaintext highlighter-rouge">driver</code>, <code class="language-plaintext highlighter-rouge">midrange</code>, <code class="language-plaintext highlighter-rouge">putter</code>.</td>
-    </tr>
-    <tr>
-      <td><strong>description</strong></td>
-      <td>string</td>
-      <td>Optional</td>
-      <td>Item description displayed beneath the H1 tag. Searchable.</td>
-    </tr>
-    <tr>
-      <td><strong>flightNumbers</strong></td>
-      <td>Object</td>
-      <td>Optional</td>
-      <td>Flight numbers used with <code class="language-plaintext highlighter-rouge">discs</code>. Requires <code class="language-plaintext highlighter-rouge">speed</code>, <code class="language-plaintext highlighter-rouge">glide</code>, <code class="language-plaintext highlighter-rouge">turn</code>, and <code class="language-plaintext highlighter-rouge">fade</code> properties.</td>
-    </tr>
-    <tr>
-      <td><strong>weight</strong></td>
-      <td>Number</td>
-      <td>Optional</td>
-      <td>Item weight (measured in pounds.)</td>
-    </tr>
-    <tr>
-      <td><strong>dimensions</strong></td>
-      <td>Object</td>
-      <td>Optional</td>
-      <td>Item dimensions. Required for <code class="language-plaintext highlighter-rouge">bags</code> and <code class="language-plaintext highlighter-rouge">baskets</code>. Requires <code class="language-plaintext highlighter-rouge">L</code> (Length), <code class="language-plaintext highlighter-rouge">W</code> (Width), and <code class="language-plaintext highlighter-rouge">H</code> (Height) properties, each measured in inches.</td>
-    </tr>
-    <tr>
-      <td><strong>category</strong></td>
-      <td>String</td>
-      <td>Required</td>
-      <td>Item category. Viable options include: <code class="language-plaintext highlighter-rouge">discs</code>, <code class="language-plaintext highlighter-rouge">bags</code>, and <code class="language-plaintext highlighter-rouge">baskets</code>.</td>
-    </tr>
-    <tr>
-      <td><strong>price</strong></td>
-      <td>Number</td>
-      <td>Required</td>
-      <td>Price in USD.</td>
-    </tr>
-  </tbody>
-</table>
+    <h4 id="request-body">Request Body</h4>
 
-<p><strong>Add a New Disc</strong></p>
+    <ul>
+      <li>In <code class="language-plaintext highlighter-rouge">v1</code>, this API did not support bulk requests. Bulk POSTS are possible in <code class="language-plaintext highlighter-rouge">v2</code> of our API. Separate each request with a comma.</li>
+      <li>This POST endpoint requires authorization with <code class="language-plaintext highlighter-rouge">Bearer: {access_token}</code>.</li>
+    </ul>
 
-<p>Adds a new disc to the product catalog.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>productId</strong></td>
+          <td>String</td>
+          <td>Optional</td>
+          <td>8-character string for <code class="language-plaintext highlighter-rouge">productId</code>. If no productId is specified, or if the productId already exists, a productId will be assigned at time of creation.</td>
+        </tr>
+        <tr>
+          <td><strong>name</strong></td>
+          <td>String</td>
+          <td>Required</td>
+          <td>Product name, displayed as an H1 on the product page. Searchable.</td>
+        </tr>
+        <tr>
+          <td><strong>type</strong></td>
+          <td>String</td>
+          <td>Optional</td>
+          <td>Only for Discs. Type denotes the type of disc. Viable options include: <code class="language-plaintext highlighter-rouge">distance driver</code>, <code class="language-plaintext highlighter-rouge">driver</code>, <code class="language-plaintext highlighter-rouge">midrange</code>, <code class="language-plaintext highlighter-rouge">putter</code>.</td>
+        </tr>
+        <tr>
+          <td><strong>description</strong></td>
+          <td>string</td>
+          <td>Optional</td>
+          <td>Item description displayed beneath the H1 tag. Searchable.</td>
+        </tr>
+        <tr>
+          <td><strong>flightNumbers</strong></td>
+          <td>Object</td>
+          <td>Optional</td>
+          <td>Flight numbers used with <code class="language-plaintext highlighter-rouge">discs</code>. Requires <code class="language-plaintext highlighter-rouge">speed</code>, <code class="language-plaintext highlighter-rouge">glide</code>, <code class="language-plaintext highlighter-rouge">turn</code>, and <code class="language-plaintext highlighter-rouge">fade</code> properties.</td>
+        </tr>
+        <tr>
+          <td><strong>weight</strong></td>
+          <td>Number</td>
+          <td>Optional</td>
+          <td>Item weight (measured in pounds.)</td>
+        </tr>
+        <tr>
+          <td><strong>dimensions</strong></td>
+          <td>Object</td>
+          <td>Optional</td>
+          <td>Item dimensions. Required for <code class="language-plaintext highlighter-rouge">bags</code> and <code class="language-plaintext highlighter-rouge">baskets</code>. Requires <code class="language-plaintext highlighter-rouge">L</code> (Length), <code class="language-plaintext highlighter-rouge">W</code> (Width), and <code class="language-plaintext highlighter-rouge">H</code> (Height) properties, each measured in inches.</td>
+        </tr>
+        <tr>
+          <td><strong>category</strong></td>
+          <td>String</td>
+          <td>Required</td>
+          <td>Item category. Viable options include: <code class="language-plaintext highlighter-rouge">discs</code>, <code class="language-plaintext highlighter-rouge">bags</code>, and <code class="language-plaintext highlighter-rouge">baskets</code>.</td>
+        </tr>
+        <tr>
+          <td><strong>price</strong></td>
+          <td>Number</td>
+          <td>Required</td>
+          <td>Price in USD.</td>
+        </tr>
+      </tbody>
+    </table>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    <p><strong>Add a New Disc (v1)</strong></p>
+
+    <p>Adds a new disc to the product catalog.</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPD9999"</span><span class="p">,</span><span class="w"> 
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Disc"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Distance Driver"</span><span class="p">,</span><span class="w">
@@ -629,40 +662,75 @@ Content-Type: application/x-www-form-urlencoded
     </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">19.99</span><span class="w"> 
   </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div></div>
+</span></code></pre></div>    </div>
 
-<h3 id="responses-2">Responses</h3>
+    <p><strong>Add a New Disc (v2)</strong></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Status</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>201 Created</td>
-      <td>Success - A JSON object is returned containing the details of the created product.</td>
-    </tr>
-    <tr>
-      <td>401 Unauthorized</td>
-      <td>Missing or invalid <code class="language-plaintext highlighter-rouge">Authorization</code> token.</td>
-    </tr>
-    <tr>
-      <td>500 Internal Server Error</td>
-      <td>Unexpected server issue. Check our status page, and then contact support if the call fails repeatedly.</td>
-    </tr>
-  </tbody>
-</table>
+    <p>Adds a new disc to the product catalog.</p>
 
-<h4 id="successful-response-example-2">Successful Response Example</h4>
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPD9998"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First Disc"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Distance Driver"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A high-speed distance driver made for throwing into wind."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"flightNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"speed"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> 
+      </span><span class="nl">"glide"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"turn"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"fade"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Discs"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">19.99</span><span class="w"> 
+  </span><span class="p">}</span><span class="err">,</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPD9999"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Second Disc"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Midrange"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A midrange approach that curves left."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"flightNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"speed"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> 
+      </span><span class="nl">"glide"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"turn"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"fade"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Discs"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">19.99</span><span class="w"> 
+  </span><span class="p">}</span><span class="w">
 
-<p>Returns all products that meet the price restrictions, less than 10 and greater than 5.</p>
+</span></code></pre></div>    </div>
 
-<p><strong>Disc Created</strong></p>
+    <h4 id="responses-1">Responses</h4>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    <table>
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>201 Created</td>
+          <td>Success - A JSON object is returned containing the details of the created product.</td>
+        </tr>
+        <tr>
+          <td>401 Unauthorized</td>
+          <td>Missing or invalid <code class="language-plaintext highlighter-rouge">Authorization</code> token.</td>
+        </tr>
+        <tr>
+          <td>500 Internal Server Error</td>
+          <td>Unexpected server issue. Check our status page, and then contact support if the call fails repeatedly.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h5 id="successful-response-example-1">Successful Response Example</h5>
+
+    <p>Returns all products that meet the price restrictions, less than 10 and greater than 5.</p>
+
+    <p><strong>Disc Created (v1)</strong></p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPD9999"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Disc"</span><span class="p">,</span><span class="w">
@@ -678,192 +746,221 @@ Content-Type: application/x-www-form-urlencoded
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div></div>
+</span></code></pre></div>    </div>
 
-<h4 id="unsuccessful-response-example-2">Unsuccessful Response Example</h4>
+    <p><strong>Disc Created (v2)</strong></p>
 
-<p><strong>401 Unauthorized</strong></p>
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPD9998"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First Disc"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Distance Driver"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A high-speed distance driver made for throwing into wind."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"flightNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"speed"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> 
+      </span><span class="nl">"glide"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"turn"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"fade"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Discs"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">19.99</span><span class="w"> 
+  </span><span class="p">}</span><span class="err">,</span><span class="w">
+ </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPD9999"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Second Disc"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Midrange"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A midrange approach that curves left."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"flightNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"speed"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> 
+      </span><span class="nl">"glide"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"turn"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"fade"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Discs"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">19.99</span><span class="w"> 
+  </span><span class="p">}</span><span class="w">
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span></code></pre></div>    </div>
+
+    <h5 id="unsuccessful-response-example-1">Unsuccessful Response Example</h5>
+
+    <p><strong>401 Unauthorized</strong></p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
 </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNAUTHORIZED"</span><span class="p">,</span><span class="w">
 </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Authentication credentials were missing or invalid."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
+</span></code></pre></div>    </div>
 
-<p><strong>500 Internal Server Error</strong></p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SERVER_ERROR"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An unexpected error occurred. Please try again later."</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
+  </div>
+</details>
 <hr />
 
-<h2 id="patch-update-product">PATCH Update Product</h2>
-
-<p><a href="#endpoints-toc">Back</a></p>
+<h3 id="patch-update-product">PATCH Update Product</h3>
 
 <p>Update a product entry. Authorization is required for this admin only endpoint.</p>
 
-<h3 id="url-3">URL</h3>
+<details>
+<summary>
+<h4> Request Details</h4>
+</summary>
+<div>
 
-<p>PATCH https://api.opddiscgolftrading.com/v1/products/{productId}</p>
+    <p><strong>URL</strong></p>
 
-<h3 id="headers-3">Headers</h3>
+    <p>PATCH https://api.opddiscgolftrading.com/v1/products/{productId}</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Key</th>
-      <th>Value</th>
-      <th>Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Accept</code></td>
-      <td><code class="language-plaintext highlighter-rouge">application/json</code></td>
-      <td>Required value.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
-      <td>Bearer {access_token}</td>
-      <td>Optional. Necessary only for privileged calls (admin filters.)</td>
-    </tr>
-  </tbody>
-</table>
+    <h4 id="headers-2">Headers</h4>
 
-<blockquote>
-  <p>PATCH is the HTTP verb used for this call.</p>
-</blockquote>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">Accept</code></td>
+          <td><code class="language-plaintext highlighter-rouge">application/json</code></td>
+          <td>Required value.</td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+          <td>Bearer {access_token}</td>
+          <td>Optional. Necessary only for privileged calls (admin filters.)</td>
+        </tr>
+      </tbody>
+    </table>
 
-<h3 id="request-body-1">Request Body</h3>
+    <blockquote>
+      <p>PATCH is the HTTP verb used for this call.</p>
+    </blockquote>
 
-<ul>
-  <li>This API does not support bulk requests. Use one request per product to be added.</li>
-  <li>This endpoint only updates fields you include.</li>
-  <li>This PATCH endpoint requires authorization with <code class="language-plaintext highlighter-rouge">Bearer: {access_token}</code>.</li>
-</ul>
+    <h4 id="request-body-1">Request Body</h4>
 
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Type</th>
-      <th>Required</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>productId</strong></td>
-      <td>String</td>
-      <td>Required</td>
-      <td>8-character string for <code class="language-plaintext highlighter-rouge">productId</code> to update. Begins with <code class="language-plaintext highlighter-rouge">OPD</code>, case insensitive.</td>
-    </tr>
-    <tr>
-      <td><strong>name</strong></td>
-      <td>String</td>
-      <td>Optional</td>
-      <td>Product name, displayed as an H1 on the product page. Searchable.</td>
-    </tr>
-    <tr>
-      <td><strong>type</strong></td>
-      <td>String</td>
-      <td>Optional</td>
-      <td>Only for Discs. Type denotes the type of disc. Viable options include: <code class="language-plaintext highlighter-rouge">distance driver</code>, <code class="language-plaintext highlighter-rouge">driver</code>, <code class="language-plaintext highlighter-rouge">midrange</code>, <code class="language-plaintext highlighter-rouge">putter</code>.</td>
-    </tr>
-    <tr>
-      <td><strong>description</strong></td>
-      <td>string</td>
-      <td>Optional</td>
-      <td>Item description displayed beneath the H1 tag. Searchable.</td>
-    </tr>
-    <tr>
-      <td><strong>flightNumbers</strong></td>
-      <td>Object</td>
-      <td>Optional</td>
-      <td>Flight numbers used with <code class="language-plaintext highlighter-rouge">discs</code>. Requires <code class="language-plaintext highlighter-rouge">speed</code>, <code class="language-plaintext highlighter-rouge">glide</code>, <code class="language-plaintext highlighter-rouge">turn</code>, and <code class="language-plaintext highlighter-rouge">fade</code> properties.</td>
-    </tr>
-    <tr>
-      <td><strong>weight</strong></td>
-      <td>Number</td>
-      <td>Optional</td>
-      <td>Weight of the item (measured in pounds.)</td>
-    </tr>
-    <tr>
-      <td><strong>dimensions</strong></td>
-      <td>Object</td>
-      <td>Optional</td>
-      <td>Dimensions of the item. Required for <code class="language-plaintext highlighter-rouge">bags</code> and <code class="language-plaintext highlighter-rouge">baskets</code>. Requires <code class="language-plaintext highlighter-rouge">L</code> (Length), <code class="language-plaintext highlighter-rouge">W</code> (Width), and <code class="language-plaintext highlighter-rouge">H</code> (Height), properties, each measured in inches.</td>
-    </tr>
-    <tr>
-      <td><strong>category</strong></td>
-      <td>String</td>
-      <td>Optional</td>
-      <td>Item category. Viable options include: <code class="language-plaintext highlighter-rouge">discs</code>, <code class="language-plaintext highlighter-rouge">bags</code>, and <code class="language-plaintext highlighter-rouge">baskets</code>.</td>
-    </tr>
-    <tr>
-      <td><strong>price</strong></td>
-      <td>Number</td>
-      <td>Optional</td>
-      <td>Price in USD.</td>
-    </tr>
-  </tbody>
-</table>
+    <ul>
+      <li>This API does not support bulk requests. Use one request per product to be changed.</li>
+      <li>This endpoint only updates fields you include.</li>
+      <li>This PATCH endpoint requires authorization with <code class="language-plaintext highlighter-rouge">Bearer: {access_token}</code>.</li>
+    </ul>
 
-<p><strong>Update a Disc</strong></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>productId</strong></td>
+          <td>String</td>
+          <td>Required</td>
+          <td>8-character string for <code class="language-plaintext highlighter-rouge">productId</code> to update. Begins with <code class="language-plaintext highlighter-rouge">OPD</code>, case insensitive.</td>
+        </tr>
+        <tr>
+          <td><strong>name</strong></td>
+          <td>String</td>
+          <td>Optional</td>
+          <td>Product name, displayed as an H1 on the product page. Searchable.</td>
+        </tr>
+        <tr>
+          <td><strong>type</strong></td>
+          <td>String</td>
+          <td>Optional</td>
+          <td>Only for Discs. Type denotes the type of disc. Viable options include: <code class="language-plaintext highlighter-rouge">distance driver</code>, <code class="language-plaintext highlighter-rouge">driver</code>, <code class="language-plaintext highlighter-rouge">midrange</code>, <code class="language-plaintext highlighter-rouge">putter</code>.</td>
+        </tr>
+        <tr>
+          <td><strong>description</strong></td>
+          <td>string</td>
+          <td>Optional</td>
+          <td>Item description displayed beneath the H1 tag. Searchable.</td>
+        </tr>
+        <tr>
+          <td><strong>flightNumbers</strong></td>
+          <td>Object</td>
+          <td>Optional</td>
+          <td>Flight numbers used with <code class="language-plaintext highlighter-rouge">discs</code>. Requires <code class="language-plaintext highlighter-rouge">speed</code>, <code class="language-plaintext highlighter-rouge">glide</code>, <code class="language-plaintext highlighter-rouge">turn</code>, and <code class="language-plaintext highlighter-rouge">fade</code> properties.</td>
+        </tr>
+        <tr>
+          <td><strong>weight</strong></td>
+          <td>Number</td>
+          <td>Optional</td>
+          <td>Weight of the item (measured in pounds.)</td>
+        </tr>
+        <tr>
+          <td><strong>dimensions</strong></td>
+          <td>Object</td>
+          <td>Optional</td>
+          <td>Dimensions of the item. Required for <code class="language-plaintext highlighter-rouge">bags</code> and <code class="language-plaintext highlighter-rouge">baskets</code>. Requires <code class="language-plaintext highlighter-rouge">L</code> (Length), <code class="language-plaintext highlighter-rouge">W</code> (Width), and <code class="language-plaintext highlighter-rouge">H</code> (Height), properties, each measured in inches.</td>
+        </tr>
+        <tr>
+          <td><strong>category</strong></td>
+          <td>String</td>
+          <td>Optional</td>
+          <td>Item category. Viable options include: <code class="language-plaintext highlighter-rouge">discs</code>, <code class="language-plaintext highlighter-rouge">bags</code>, and <code class="language-plaintext highlighter-rouge">baskets</code>.</td>
+        </tr>
+        <tr>
+          <td><strong>price</strong></td>
+          <td>Number</td>
+          <td>Optional</td>
+          <td>Price in USD.</td>
+        </tr>
+      </tbody>
+    </table>
 
-<p>Changes the price of an existing disc from the product catalog.</p>
+    <p><strong>Update a Disc</strong></p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    <p>Changes the price of an existing disc from the product catalog.</p>
+
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPD9999"</span><span class="p">,</span><span class="w"> 
     </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">17.99</span><span class="w"> 
   </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div></div>
+</span></code></pre></div>    </div>
 
-<h3 id="responses-3">Responses</h3>
+    <h4 id="responses-2">Responses</h4>
 
-<table>
-  <thead>
-    <tr>
-      <th>Status</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>200 OK</td>
-      <td>Success - A JSON object is returned containing the details of the product Id supplied.</td>
-    </tr>
-    <tr>
-      <td>400 Bad Request</td>
-      <td>Invalid query parameters. Check types sent for possible errors.</td>
-    </tr>
-    <tr>
-      <td>401 Unauthorized</td>
-      <td>Missing or invalid <code class="language-plaintext highlighter-rouge">Authorization</code> token.</td>
-    </tr>
-    <tr>
-      <td>404 Not Found</td>
-      <td><code class="language-plaintext highlighter-rouge">productId</code> does not exist.</td>
-    </tr>
-  </tbody>
-</table>
+    <table>
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>202 Accepted</td>
+          <td>Success - A JSON object is returned containing the all details of the product Id supplied.</td>
+        </tr>
+        <tr>
+          <td>400 Bad Request</td>
+          <td>Invalid query parameters. Check types sent for possible errors.</td>
+        </tr>
+        <tr>
+          <td>401 Unauthorized</td>
+          <td>Missing or invalid <code class="language-plaintext highlighter-rouge">Authorization</code> token.</td>
+        </tr>
+        <tr>
+          <td>404 Not Found</td>
+          <td><code class="language-plaintext highlighter-rouge">productId</code> does not exist.</td>
+        </tr>
+      </tbody>
+    </table>
 
-<h4 id="successful-response-example-3">Successful Response Example</h4>
+    <h5 id="successful-response-example-2">Successful Response Example</h5>
 
-<p>This example shows the new json object with updated price:</p>
+    <p>This example shows the new json object with updated price:</p>
 
-<p><strong>Disc Updated</strong></p>
+    <p><strong>Disc Updated</strong></p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPD9999"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Disc"</span><span class="p">,</span><span class="w">
@@ -875,144 +972,148 @@ Content-Type: application/x-www-form-urlencoded
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div></div>
+</span></code></pre></div>    </div>
 
-<h4 id="unsuccessful-response-example-3">Unsuccessful Response Example</h4>
+    <h5 id="unsuccessful-response-example-2">Unsuccessful Response Example</h5>
 
-<p><strong>400 Bad Request</strong></p>
+    <p><strong>404 Not Found</strong></p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INVALID_QUERY"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Check query parameters. "</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>401 Unauthorized</strong></p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-</span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNAUTHORIZED"</span><span class="p">,</span><span class="w">
-</span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Authentication credentials were missing or invalid."</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>404 Not Found</strong></p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
 </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOT FOUND"</span><span class="p">,</span><span class="w">
 </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No product was found for this `productId`."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
+</span></code></pre></div>    </div>
 
+  </div>
+</details>
 <hr />
 
-<h2 id="delete-delete-a-product">DELETE Delete a Product</h2>
-
-<p><a href="#endpoints-toc">Back</a></p>
+<h3 id="delete-a-product">DELETE a Product</h3>
 
 <p>Delete a product from the product catalog. Authorization is required for this admin only endpoint.</p>
 
-<h3 id="url-4">URL</h3>
+<details>
+<summary>
+<h4> Request Details</h4>
+</summary>
+<div>
 
-<p>DELETE https://api.opddiscgolftrading.com/v1/products/{productId}</p>
+    <p><strong>URL</strong></p>
 
-<h3 id="headers-4">Headers</h3>
+    <p>DELETE https://api.opddiscgolftrading.com/v1/products/{productId}</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Key</th>
-      <th>Value</th>
-      <th>Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Accept</code></td>
-      <td><code class="language-plaintext highlighter-rouge">application/json</code></td>
-      <td>Required value.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
-      <td>Bearer {access_token}</td>
-      <td>Optional. Required for admin requests.)</td>
-    </tr>
-  </tbody>
-</table>
+    <h3 id="headers-3">Headers</h3>
 
-<blockquote>
-  <p>DELETE is the HTTP verb used for this call.</p>
-</blockquote>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">Accept</code></td>
+          <td><code class="language-plaintext highlighter-rouge">application/json</code></td>
+          <td>Required value.</td>
+        </tr>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+          <td>Bearer {access_token}</td>
+          <td>Optional. Required for admin requests.)</td>
+        </tr>
+      </tbody>
+    </table>
 
-<h3 id="sample-request-2">Sample Request</h3>
+    <blockquote>
+      <p>DELETE is the HTTP verb used for this call.</p>
+    </blockquote>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> DELETE <span class="s2">"https://api.opddiscgolftrading.com/v1/products/OPD99999"</span> <span class="se">\</span>
+    <h3 id="sample-request-1">Sample Request</h3>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> DELETE <span class="s2">"https://api.opddiscgolftrading.com/v1/products/OPD99999"</span> <span class="se">\</span>
      <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
      <span class="nt">-H</span> <span class="s2">"Authorization: Bearer{my_secret_token}"</span>
-</code></pre></div></div>
+</code></pre></div>    </div>
 
-<h3 id="responses-4">Responses</h3>
+    <h3 id="responses-3">Responses</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Status</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>204 No Content</td>
-      <td>Success - A message is returned confirming deletion of the productId.</td>
-    </tr>
-    <tr>
-      <td>401 Unauthorized</td>
-      <td>Missing or invalid <code class="language-plaintext highlighter-rouge">Authorization</code> token.</td>
-    </tr>
-    <tr>
-      <td>404 Not Found</td>
-      <td>No product exists for the specified <code class="language-plaintext highlighter-rouge">productId</code>.</td>
-    </tr>
-  </tbody>
-</table>
+    <table>
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>204 No Content</td>
+          <td>Success - A message is returned confirming deletion of the productId.</td>
+        </tr>
+        <tr>
+          <td>401 Unauthorized</td>
+          <td>Missing or invalid <code class="language-plaintext highlighter-rouge">Authorization</code> token.</td>
+        </tr>
+        <tr>
+          <td>404 Not Found</td>
+          <td>No product exists for the specified <code class="language-plaintext highlighter-rouge">productId</code>.</td>
+        </tr>
+      </tbody>
+    </table>
 
-<h4 id="successful-response-example-4">Successful Response Example</h4>
+    <h4 id="successful-response-example-3">Successful Response Example</h4>
 
-<p><strong>Delete a Disc from the Catalog</strong></p>
+    <p><strong>Delete a Disc from the Catalog</strong></p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disc with productId OPD99999 successfully deleted."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div></div>
+</span></code></pre></div>    </div>
 
-<h4 id="unsuccessful-response-example-4">Unsuccessful Response Example</h4>
+    <h4 id="unsuccessful-response-example-3">Unsuccessful Response Example</h4>
 
-<p><strong>401 Unauthorized</strong></p>
+    <p><strong>401 Unauthorized</strong></p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
 </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNAUTHORIZED"</span><span class="p">,</span><span class="w">
 </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Authentication credentials were missing or invalid."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
+</span></code></pre></div>    </div>
 
-<p><strong>404 Not Found</strong></p>
+    <p><strong>404 Not Found</strong></p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
 </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOT FOUND"</span><span class="p">,</span><span class="w">
 </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No product was found for this `productId`."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
+</span></code></pre></div>    </div>
+  </div>
+</details>
 
+<hr />
+
+<details>
+<summary>
+<h2 id="best-practices"> Best Practices</h2>
+</summary>
+<div>
+
+    <p>The following best practices are recommend when utilizing our API for development purposes:</p>
+
+    <ol>
+      <li>Reduce usage when posting products through utilization of the <code class="language-plaintext highlighter-rouge">v2</code> endpoint.</li>
+      <li>Usage is limited to 200 calls per minute. Structure requests accordingly.</li>
+    </ol>
+  </div>
+</details>
 
 
       </section>
