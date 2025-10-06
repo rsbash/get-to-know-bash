@@ -144,13 +144,19 @@ A successful response always contains these elements:
 | `expires_in` | number | `3600` | measured in seconds. Default is 3600, or 1 hour |
 | `scope` | string | `"products:write products:delete"` | The token is authorized to utilize endpoints within these scopes. |
 
-> Usage is described as needed for relevant endpoints.
-
 ---------
 </div>
 </details>
 
+> Usage is described as needed for relevant endpoints.
+
+
 ## API Endpoints
+
+Use these endpoints to interact with the ODP API. 
+
+* All endpoints have a `v1` endpoint. 
+* We are collecting feedback and updating our API to `v2`. A test endpoint is available to create multiple products in a single request. 
 
 ---------
 ### GET /products by ID
@@ -626,15 +632,9 @@ curl -X DELETE "https://api.opddiscgolftrading.com/v1/products/OPD99999" \
 
 ------
 
-<details>
-<summary>
 <h2 id="best-practices"> Best Practices</h2>
-</summary>
-<div markdown="1">
 
 The following best practices are recommend when utilizing our API for development purposes:
 
 1. Reduce usage when posting products through utilization of the `v2` endpoint.
 2. Usage is limited to 200 calls per minute. Structure requests accordingly. 
-</div>
-</details>

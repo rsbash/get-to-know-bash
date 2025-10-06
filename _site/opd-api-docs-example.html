@@ -384,15 +384,22 @@ document.addEventListener('DOMContentLoaded', function() {
       </tbody>
     </table>
 
-    <blockquote>
-      <p>Usage is described as needed for relevant endpoints.</p>
-    </blockquote>
-
     <hr />
   </div>
 </details>
 
+<blockquote>
+  <p>Usage is described as needed for relevant endpoints.</p>
+</blockquote>
+
 <h2 id="api-endpoints">API Endpoints</h2>
+
+<p>Use these endpoints to interact with the ODP API.</p>
+
+<ul>
+  <li>All endpoints have a <code class="language-plaintext highlighter-rouge">v1</code> endpoint.</li>
+  <li>We are collecting feedback and updating our API to <code class="language-plaintext highlighter-rouge">v2</code>. A test endpoint is available to create multiple products in a single request.</li>
+</ul>
 
 <hr />
 <h3 id="get-products-by-id">GET /products by ID</h3>
@@ -1100,20 +1107,14 @@ curl <span class="nt">-X</span> POST <span class="s2">"https://api.opddiscgolftr
 
 <hr />
 
-<details>
-<summary>
 <h2 id="best-practices"> Best Practices</h2>
-</summary>
-<div>
 
-    <p>The following best practices are recommend when utilizing our API for development purposes:</p>
+<p>The following best practices are recommend when utilizing our API for development purposes:</p>
 
-    <ol>
-      <li>Reduce usage when posting products through utilization of the <code class="language-plaintext highlighter-rouge">v2</code> endpoint.</li>
-      <li>Usage is limited to 200 calls per minute. Structure requests accordingly.</li>
-    </ol>
-  </div>
-</details>
+<ol>
+  <li>Reduce usage when posting products through utilization of the <code class="language-plaintext highlighter-rouge">v2</code> endpoint.</li>
+  <li>Usage is limited to 200 calls per minute. Structure requests accordingly.</li>
+</ol>
 
 
       </section>
