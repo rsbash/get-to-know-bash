@@ -12,7 +12,7 @@ I've collected a series of my best technical documentation, API docs, and blogs 
 1. [I transformed Cogility's docs from a monolithic PDF into accessible, feature-first documentation.](#cogility-docs)
 2. [I built Cogynt's Sample Project Library, tiered training that reduced onboarding significantly.](#cogility-sample-projects)
 3. [I took Uptime.com's documentation from engineer-driven to user relatable.](#uptimecom-docs)
-4. [I tripled Uptime.com's blog traffic, and created repeatable processes to write SEP-focused blogs with a unified voice and style.](#uptimecom-blogs)
+4. [I tripled Uptime.com's blog traffic, and created repeatable processes to write SEO-focused blogs with a unified voice and style.](#uptimecom-blogs)
 5. [I've written a number of evergreen examples of API and software documentation and collected them here.](#evergreen)
 
 ### Published and Public
@@ -59,6 +59,7 @@ Before I started:
 I developed **10+ sample projects to accelerate onboarding** through real-world use cases. My work:
 
   * Featured **tiered projects** to **onboard every level of user**, from beginner to advanced.
+  * **Reduced 70% of onboarding to weeks**, with most advanced users completing onboarding within one month.
   * Used real-world data and practical ideas.
   * Directly correlated to a **15% increase in feature adoption** and a **30% bump in new model creation**. 
   
