@@ -11,7 +11,7 @@ I've collected a series of my best technical documentation, API docs, and blogs 
 
 1. [See how I transformed Cogility's docs from a monolithic PDF into accessible, feature-first documentation.](#cogility-docs)
 2. [Check out Cogynt's Sample Project Library, where my work reduced onboarding from months to weeks.](#cogility-sample-projects)
-3. [See how I took Uptime.com's documentation from engineer driven to user relatable](#uptimecom-docs)
+3. [See how I took Uptime.com's documentation from engineer-driven to user relatable](#uptimecom-docs)
 4. [My work on Uptime.com's blog tripled its traffic and created repeatable, SEO-first blogs with a unified voice and style.](#uptimecom-blogs)
 5. [I've written a number of evergreen examples of API and software documentation and collected them here.](#evergreen)
 
