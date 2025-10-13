@@ -1,0 +1,516 @@
+/*
+COLORS
+======
+Pink: #DF1375
+Dark Blue: #2D97C8
+Light Blue: #53AAD2
+Light Border: #E4E8ED
+
+INDEX
+======
+COMMON
+TOP HEADER
+INTRO
+HOME PAGE
+SINGLE POST
+TABLE OF CONTENTS
+AUTHOR PROFILE
+CUSTOM POST TYPE : CHANGELOG
+OVERRIDE MAIN SITE STYLES
+*/
+
+/* ========== COMMON ========== */
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+	color: #202a2e;
+}
+
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover {
+	color: #0074ce;
+}
+
+article h1,
+article h2,
+article h3 {
+	font-weight: 600;
+}
+
+/* ========== INTRO ========== */
+
+.intro .dropdown-menu {
+	width: 100%;
+}
+
+.intro .dropdown-menu li a {
+	display: block;
+	padding: 0.25rem 0;
+}
+
+.intro #searchform {
+	display: inline-flex;
+	margin: 0 0 0 5px;
+}
+
+.intro #s {
+	padding: 7px 7px 7px 10px;
+	border: 1px solid #dbe1e5;
+	border-radius: 3px;
+	vertical-align: middle;
+	max-width: 150px;
+}
+
+.intro #searchsubmit {
+	border: 0;
+	background: url(/web/20231008100722im_/https://uptime.com/blog/wp-content/themes/uptimeblog/assets/img/search.svg) center center no-repeat;
+	width: 30px;
+	height: 38px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.intro #s:focus,
+.intro #searchsubmit:focus {
+	outline: none;
+}
+
+@media (max-width: 399px) {
+	.intro #searchform {
+		margin: 10px 0 0;
+	}
+}
+
+/* ========== HOME PAGE ========== */
+
+.btn-arrow {
+	padding: 0.75rem;
+}
+
+.btn-arrow img {
+	margin: 0 0 0 1rem;
+	vertical-align: 2px;
+}
+
+.btn-arrow.opposite img {
+	margin: 0 1rem 0 0;
+}
+
+.post_category {
+	display: inline-block;
+	text-transform: uppercase;
+	font-weight: 600;
+	border-bottom: 1px solid #e4e8ed;
+	margin: 0 0 1rem;
+	padding: 0 5rem 0.5rem 0;
+	font-size: 14px;
+}
+
+.post_meta {
+	font-size: 12px;
+	font-weight: 600;
+	margin: 0 0 1rem;
+}
+
+.post_meta a {
+	color: #52626a;
+}
+
+.post_meta a:hover {
+	color: #0074ce;
+}
+
+.post_meta .author {
+	float: left;
+}
+
+.post_meta .date {
+	float: right;
+}
+
+.post_full_big,
+.post_three_col,
+.post_full_small {
+	background: #fff;
+	box-shadow: 0 2px 4px 0 rgba(45, 56, 61, 0.03),
+		0 2px 12px 0 rgba(42, 51, 56, 0.1);
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+
+.post_full_big .thumbnail,
+.post_three_col .thumbnail,
+.post_full_small .thumbnail {
+	display: block;
+}
+
+.post_full_big .thumbnail img,
+.post_three_col .thumbnail img,
+.post_full_small .thumbnail img {
+	display: block;
+	margin: auto;
+}
+
+.post_full_big .txt,
+.post_three_col .txt,
+.post_full_small .txt {
+	padding: 0.5rem 1rem 0;
+}
+
+.post_full_big .txt .btn,
+.post_three_col .txt .btn {
+	display: block;
+	margin: 0 -1rem;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.post_three_col .excerpt,
+.post_full_small .excerpt {
+	color: #85969e;
+	font-size: 16px;
+}
+
+.wp-pagenavi {
+	float: right;
+}
+
+.wp-pagenavi span,
+.wp-pagenavi a {
+	float: left;
+}
+
+.wp-pagenavi .pages {
+	color: #85969e;
+	line-height: 50px;
+	padding: 0 3rem 0 0;
+}
+
+.wp-pagenavi a span {
+	width: 50px;
+	height: 50px;
+	border: 3px solid #e5eaef;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.wp-pagenavi a:hover span {
+	background-color: #e5eaef;
+}
+
+.wp-pagenavi .previouspostslink span {
+	background-image: url(/web/20231008100722im_/https://uptime.com/blog/wp-content/themes/uptimeblog/assets/img/arrow_left_blue.svg);
+	margin: 0 -3px 0 0;
+}
+
+.wp-pagenavi .nextpostslink span {
+	background-image: url(/web/20231008100722im_/https://uptime.com/blog/wp-content/themes/uptimeblog/assets/img/arrow_right_blue.svg);
+}
+
+@media (min-width: 768px) {
+	.btn-arrow {
+		padding: 0.75rem 2.5rem 0.75rem 1.5rem;
+	}
+
+	.post_full_big,
+	.post_full_small {
+		border-radius: 4px;
+	}
+
+	.post_three_col .post_meta .date {
+		float: left;
+		clear: both;
+	}
+
+	.post_full_big .thumbnail,
+	.post_full_small .thumbnail {
+		height: 100%;
+	}
+
+	.post_full_big .thumbnail img,
+	.post_full_small .thumbnail img {
+		border-top-left-radius: 4px;
+		border-bottom-left-radius: 4px;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.post_full_big .thumbnail img {
+		width: 100%;
+	}
+
+	.post_full_big .txt {
+		padding: 1rem 1rem 2rem 0;
+	}
+
+	.post_full_big .post_category {
+		font-size: 18px;
+	}
+
+	.post_full_big .excerpt {
+		font-size: 20px;
+		padding: 0 0 1rem;
+	}
+
+	.post_full_big .txt .btn {
+		display: inline-block;
+		margin: 0;
+		border-top-left-radius: 0.25rem;
+		border-top-right-radius: 0.25rem;
+	}
+
+	.post_three_col {
+		height: 100%;
+		position: relative;
+	}
+
+	.post_three_col .txt {
+		padding: 0.5rem 1.5rem 2.5rem;
+	}
+
+	.post_three_col .txt .btn {
+		position: absolute;
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		margin: 0;
+		text-align: left;
+	}
+
+	.post_full_small .txt {
+		padding: 1rem 1rem 0.5rem 0;
+	}
+}
+
+@media (min-width: 992px) {
+	.post_three_col .post_meta .date {
+		float: right;
+		clear: none;
+	}
+}
+
+/* ========== SINGLE POST ========== */
+
+.post_single {
+	max-width: 750px;
+	margin: auto;
+	line-height: 1.5;
+}
+
+.post_single .size-hero {
+	display: block;
+	margin: auto;
+	width: 100%;
+}
+
+.post_single .post_category {
+	font-size: 16px;
+}
+
+.alignleft {
+	float: left;
+	margin: 0.25rem 1rem 1rem 0;
+}
+
+.alignright {
+	float: right;
+	margin: 0.25rem 0 1rem 1rem;
+}
+
+.aligncenter {
+	display: block;
+	margin: 0 auto 1rem;
+}
+
+.alignnone {
+	display: block;
+	margin: 0 0 1rem;
+}
+
+.wp-caption {
+	padding: 10px;
+	max-width: 100%;
+	text-align: center;
+	background: #fff;
+	box-shadow: 0 2px 4px 0 rgba(45, 56, 61, 0.03),
+		0 2px 12px 0 rgba(42, 51, 56, 0.1);
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	font-size: 14px;
+}
+
+.wp-caption a {
+	display: block;
+}
+
+.wp-caption img {
+	display: block;
+	margin: 0 auto 0.5rem;
+}
+
+.wp-caption p {
+	margin: 0;
+	padding: 0 0.5rem 0.5rem;
+}
+
+article table {
+	width: 100%;
+	margin: 0 0 1rem;
+}
+
+article th,
+article td {
+	border: 1px solid #e4e8ed;
+	padding: 10px 15px;
+	line-height: 1.2;
+}
+
+@media (min-width: 576px) {
+	.post_single .post_category {
+		font-size: 18px;
+	}
+}
+
+@media (min-width: 768px) {
+	.post_single .post_category {
+		font-size: 20px;
+	}
+}
+
+@media (min-width: 992px) {
+	.post_single .post_category {
+		font-size: 22px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.post_single .post_category {
+		font-size: 24px;
+	}
+}
+
+/* ========== TABLE OF CONTENTS ========== */
+
+.toc {
+	display: inline-block;
+	margin: 0 0 20px;
+	padding: 20px 25px 15px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	background: #fff;
+}
+
+.toc h5 {
+	text-transform: uppercase;
+}
+
+.toc ol {
+	list-style: decimal outside;
+	margin: 0 0 0 17px;
+	padding: 0;
+}
+
+.toc li a {
+	display: block;
+	padding: 2px 0;
+}
+
+/* ========== AUTHOR PROFILE ========== */
+
+.author_profile {
+	background-color: #fff;
+	border: 1px solid #e4e8ed;
+	border-radius: 4px;
+	padding: 1.25rem;
+	font-size: 14px;
+}
+
+.author_profile .avatar {
+	float: left;
+	border-radius: 100px;
+	margin: 0 1.25rem 0 0;
+}
+
+.text-dark-2 {
+	color: #767c8c !important;
+}
+
+#st_gdpr_iframe {
+	display: none !important;
+}
+
+/* ========== CUSTOM POST TYPE : CHANGELOG ========== */
+
+.wrap-changelog {
+	max-width: 750px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wrap-changelog .changelog-header h1 img {
+	vertical-align: -0.25rem;
+	margin-right: 0.5rem;
+}
+
+.changelog-header .switch {
+	display: inline-block;
+	background: #0074ce;
+	color: #fff;
+	font-size: 14px;
+	border-radius: 0.25rem;
+	padding: 0.5rem 0.75rem 0.6rem;
+}
+
+.changelog-header .switch:hover {
+	background: #004982;
+}
+
+.changelog-header .switch img {
+	margin-left: 0.25rem;
+}
+
+/* ========== OVERRIDE MAIN SITE STYLES ========== */
+
+body.tag {
+	background: initial;
+	line-height: initial;
+	font-size: initial;
+	padding: 0;
+	border-radius: 0;
+	white-space: normal;
+}
+
+/* ========== END ========== */
+
+/*
+     FILE ARCHIVED ON 10:07:22 Oct 08, 2023 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 17:38:33 Oct 13, 2025.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.73
+  exclusion.robots: 0.042
+  exclusion.robots.policy: 0.011
+  esindex: 0.012
+  cdx.remote: 82.93
+  LoadShardBlock: 784.266 (3)
+  PetaboxLoader3.datanode: 1285.576 (4)
+  load_resource: 926.331
+  PetaboxLoader3.resolve: 247.969
+*/
