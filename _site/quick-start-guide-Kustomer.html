@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>References | Get to Know Bash</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="References" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Find the resume and work samples of Richard Bashara here." />
+<meta property="og:description" content="Find the resume and work samples of Richard Bashara here." />
+<link rel="canonical" href="http://localhost:4000/quick-start-guide-Kustomer.html" />
+<meta property="og:url" content="http://localhost:4000/quick-start-guide-Kustomer.html" />
+<meta property="og:site_name" content="Get to Know Bash" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="References" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Find the resume and work samples of Richard Bashara here.","headline":"References","url":"http://localhost:4000/quick-start-guide-Kustomer.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <link rel="stylesheet" href="/assets/css/main.css">
+<script>
+// Function to expand details when hash link is clicked
+function expandAncestorDetails(element) {
+  let parent = element.parentElement;
+  while (parent) {
+    if (parent.tagName === 'DETAILS') {
+      parent.open = true;
+    }
+    parent = parent.parentElement;
+  }
+}
+
+// Handle direct navigation to hash URLs
+if (window.location.hash) {
+  const targetElement = document.querySelector(window.location.hash);
+  if (targetElement) {
+    expandAncestorDetails(targetElement);
+    // Smooth scroll to the element
+    targetElement.scrollIntoView();
+  }
+}
+
+// Handle clicks on TOC links
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.toc a[href^="#"]');
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        e.preventDefault();
+        expandAncestorDetails(targetElement);
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+        // Update URL hash
+        history.pushState(null, null, targetId);
+      }
+    });
+  });
+});
+</script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="/assets/js/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="/assets/css/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <ul>
+            <li class="fork"><a href="">View On GitHub</a></li>
+            
+              <li class="downloads"><a href="">ZIP</a></li>
+              <li class="downloads"><a href="">TAR</a></li>
+              <li class="title">DOWNLOADS</li>
+            
+          </ul>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Get to Know Bash</h1>
+          <p>Find the resume and work samples of Richard Bashara here.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href=""></a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></span>
+        </div>
+
+        <blockquote>
+  <p>The point of this exercise was to utilize AI to write a quickstart guide for a real product. I have broke this excercise down into these steps:</p>
+
+  <ol>
+    <li>First, craft an intro that outlines starting requirements and briefly discusses the point of the guide.</li>
+    <li>Craft each step in a similar technical style, manually reviewing and testing each step and correcting for hallucinations.</li>
+    <li>Final technical pass, including QA test to break.</li>
+  </ol>
+</blockquote>
+
+<h2 id="quickstart-adding-a-customer-with-kustomers-node-sdk">Quick‑Start: Adding a Customer with Kustomer’s Node SDK</h2>
+
+<p>Use this short guide to create a single customer record inside your Kustomer account with the official <strong>Node.js SDK</strong>. This guide covers only the essentials:</p>
+
+<ul>
+  <li>Installing the correct packages</li>
+  <li>Setting up authentication</li>
+  <li>Running a script to push a customer record to the API.</li>
+</ul>
+
+<p>This project is configured to communicate with the Kustomer sandbox. Target production by replacing the base URL from your environment variable (<code class="language-plaintext highlighter-rouge">KUSTOMER_API_BASE_URL</code>) with your own production endpoint.</p>
+
+<p><strong>What you need before you begin:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Why it matters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Node.js (v18+)</strong></td>
+      <td>Used to run the SDK in a Node runtime.</td>
+    </tr>
+    <tr>
+      <td><strong>npm or Yarn</strong></td>
+      <td>Installs the <code class="language-plaintext highlighter-rouge">@kustomer/sdk</code> package.</td>
+    </tr>
+    <tr>
+      <td><strong>Kustomer account</strong></td>
+      <td>A required workspace to create data in.</td>
+    </tr>
+    <tr>
+      <td><strong>API key</strong> (or OAuth token)</td>
+      <td>Authenticates every request made to the API.</td>
+    </tr>
+    <tr>
+      <td><strong>Text editor</strong></td>
+      <td>Used to write code for this example.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For this workflow you will execute a single JavaScript file and then see a new customer appear in your Kustomer console.</p>
+
+<p>Let’s begin.</p>
+
+<h3 id="step1--install-the-node-sdk-and-add-your-api-key">Step 1 – Install the Node SDK and Add Your API Key</h3>
+
+<p>Before we begin, make sure a project folder has been created:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nb">mkdir </span>kustomer‑node‑quickstart
+   <span class="nb">cd </span>kustomer‑node‑quickstart
+</code></pre></div></div>
+
+<ol>
+  <li><strong>Initialize the Project</strong></li>
+</ol>
+
+<p>Create a fresh <code class="language-plaintext highlighter-rouge">package.json</code> for the SDK and its dependencies:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   npm init <span class="nt">-y</span>          <span class="c"># (or `yarn init -y` if you prefer Yarn)</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>These instructions proceed as though you are using <code class="language-plaintext highlighter-rouge">npm</code>.</p>
+</blockquote>
+
+<ol>
+  <li>
+    <p><strong>Install the Official Kustomer SDK</strong></p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm <span class="nb">install</span> @kustomer/sdk
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>Add Your API Key</strong></p>
+
+    <p>The Kustomer SDK looks for the key in the <code class="language-plaintext highlighter-rouge">KUSTOMER_API_KEY</code> environment variable.</p>
+
+    <p>Using MacOS/Linux, run the following:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">KUSTOMER_API_KEY</span><span class="o">=</span><span class="s2">"YOUR‑SANDBOX‑API‑KEY"</span>
+</code></pre></div>    </div>
+
+    <p>Using Windows PowerShell, run the following:</p>
+
+    <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$</span><span class="nn">env</span><span class="p">:</span><span class="nv">KUSTOMER_API_KEY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"YOUR-SANDBOX-API-KEY"</span><span class="w">
+</span></code></pre></div>    </div>
+
+    <blockquote>
+      <p><strong>Tip</strong></p>
+
+      <p>For local testing, you can place the key in a <code class="language-plaintext highlighter-rouge">.env</code> file and load it with <code class="language-plaintext highlighter-rouge">dotenv</code>, but the shell export is used in this quickstart guide for simplicity.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>Point the SDK to the sandbox</strong>.</p>
+
+    <p>Because the SDK defaults to production (<code class="language-plaintext highlighter-rouge">https://api.kustomer.com</code>), we will override the setting <code class="language-plaintext highlighter-rouge">KUSTOMER_API_BASE_URL</code> and point it to the sandbox endpoint:</p>
+  </li>
+</ol>
+
+<p>Using MacOS/Linux, run the following:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nb">export </span><span class="nv">KUSTOMER_API_BASE_URL</span><span class="o">=</span><span class="s2">"https://api-sandbox.kustomer.com"</span>
+</code></pre></div></div>
+
+<p>Using Windows PowerShell, run the following:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">   </span><span class="nv">$</span><span class="nn">env</span><span class="p">:</span><span class="nv">KUSTOMER_API_BASE_URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"https://api-sandbox.kustomer.com"</span><span class="w">
+</span></code></pre></div></div>
+
+<blockquote>
+  <p><strong>Scope checklist</strong><br />
+Your API key must have the <code class="language-plaintext highlighter-rouge">org.permission.customer.create</code> permission before you can create a record. To review your user’s scope:</p>
+  <ol>
+    <li>Login to Kustomer and navigate to <strong>Kustomer Admin</strong>.</li>
+    <li>Click <strong>API keys</strong>. Locate your API Key.</li>
+    <li>Click <strong>Permissions</strong> to view the permissions granted to your API key.</li>
+  </ol>
+</blockquote>
+
+<hr />
+
+<h3 id="whats-next">What’s Next?</h3>
+
+<p>With the SDK installed and the environment variables set, you’re ready to create a script that pushes a customer to your sandbox. The next step walks through that file.</p>
+
+<h2 id="step2--write--run-the-create-customer-script">Step 2 – Write &amp; Run the “Create Customer” Script</h2>
+
+<p>Below is a fully commented single‑file example called <code class="language-plaintext highlighter-rouge">create-customer.js</code>. This minimal script creates a customer in the sandbox environment.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * create-customer.js
+ * ------------------
+ * A minimal Node.js script that uses the Kustomer SDK to create a customer
+ * in your sandbox environment.
+ */</span>
+ 
+<span class="c1">// 1️⃣  Imports the Kustomer SDK</span>
+<span class="kd">const</span> <span class="nx">Kustomer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">@kustomer/sdk</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="c1">// 2️⃣  Instantiates a client.  </span>
+<span class="c1">//     The SDK automatically reads `KUSTOMER_API_KEY` </span>
+<span class="c1">//     and (if present) `KUSTOMER_API_BASE_URL` from the environment.</span>
+<span class="kd">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Kustomer</span><span class="p">();</span>
+
+<span class="c1">// 3️⃣  Build a customer payload.</span>
+<span class="c1">//     Kustomer’s Customer resource requires the following minimal fields:</span>
+<span class="c1">//       • firstName  – The customer’s first name</span>
+<span class="c1">//       • lastName   – The customer’s last name</span>
+<span class="c1">//       • email      – The customer’s email address</span>
+<span class="c1">//</span>
+<span class="c1">//     You can add more optional fields (phoneNumber, tags, etc.) if needed.</span>
+<span class="c1">//     See </span>
+<span class="kd">const</span> <span class="nx">newCustomer</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">firstName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Jane</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">lastName</span><span class="p">:</span>  <span class="dl">'</span><span class="s1">Doe</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">email</span><span class="p">:</span>     <span class="dl">'</span><span class="s1">jane.doe@example.com</span><span class="dl">'</span>
+<span class="p">};</span>
+
+<span class="c1">// 4️⃣  Call the SDK to create the customer.</span>
+<span class="c1">//     `client.customers.create` returns a Promise that resolves</span>
+<span class="c1">//     with the complete Customer object returned by the API.</span>
+<span class="nx">client</span><span class="p">.</span><span class="nx">customers</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">newCustomer</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">customer</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// ✅ Success – log the returned customer ID and name.</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Customer created successfully!</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`ID:   </span><span class="p">${</span><span class="nx">customer</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Name: </span><span class="p">${</span><span class="nx">customer</span><span class="p">.</span><span class="nx">firstName</span><span class="p">}</span><span class="s2"> </span><span class="p">${</span><span class="nx">customer</span><span class="p">.</span><span class="nx">lastName</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// ⚠️  If the API returns an error (validation, auth, etc.), it lands here.</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Failed to create customer.</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Error details:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+  <span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="how-to-run-the-script">How to Run the Script</h3>
+
+<p>Before you begin: <strong>Make sure the environment variables are still loaded</strong>. If you closed the terminal, re‑export them or reopen the terminal session.</p>
+
+<ol>
+  <li>
+    <p><strong>Execute the Script Using Node:</strong></p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node create-customer.js
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>Observe the Output</strong></p>
+
+    <p>On success, you should see an output similar to this:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Customer created successfully!
+ID:   c_1kz8f3T3...
+Name: Jane Doe
+</code></pre></div>    </div>
+
+    <p>On failure, an error object is printed that typically contains:</p>
+
+    <ul>
+      <li>A <code class="language-plaintext highlighter-rouge">message</code> field that describes the error</li>
+      <li>A <code class="language-plaintext highlighter-rouge">response</code> object with HTTP status codes and validation details</li>
+    </ul>
+  </li>
+</ol>
+
+<p>That’s it! You’ve just fired up the Kustomer SDK from a Node script and created a customer in your sandbox. 🎉</p>
+
+
+      </section>
+
+    </div>
+  </body>
+</html>
