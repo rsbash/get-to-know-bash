@@ -9,6 +9,7 @@ title: My Writing Samples
 
 I've collected a series of my best technical documentation, API docs, and blogs for review.
 
+1. [I modernized Kustomer's documentation pipeline to aggressively tackle rot and rapid feature release.](#kustomer-docs)
 1. [I transformed Cogility's docs from a monolithic PDF into accessible, feature-first documentation.](#cogility-docs)
 2. [I built Cogynt's Sample Project Library, tiered training that reduced onboarding significantly.](#cogility-sample-projects)
 3. [I took Uptime.com's documentation from engineer-driven to user relatable.](#uptimecom-docs)
@@ -21,15 +22,17 @@ I have archived each of these samples to preserve my work, but each sample shoul
 
 #### Kustomer Docs  
 
-1. [Using evaluations with the Kustomer API](https://developer.kustomer.com/kustomer-apps-platform/docs/using-evaluations-with-the-kustomer-api)
+1. [Quick‑Start: Adding a Customer with Kustomer’s Node SDK](\quick-start-guide-Kustomer.html)
+2. [Using evaluations with the Kustomer API](https://developer.kustomer.com/kustomer-apps-platform/docs/using-evaluations-with-the-kustomer-api)
+3. [Kustomer Voice Runbook](/other-samples/The-Kustomer-Voice-Runbook.pdf)
 
 An API guide on using Kustomer Evaluations. Before I began my work, this guide did not exist and this endpoint was largely undocumented. 
 
-After my work, Kustomer's Evaluations endpoint had:
+After my work at Kustomer:
 
-* Fully documented the Evaluations order of operations.
-* Defined key terminology necessary to understand and use Evaluations.
-* Provided practical coded examples.
+* Backlog reduction increased to 30% weekly
+* Research, draft, edit skills driving every phase of docs creation
+* Not just documenting Kustomer API, using it for drafting and managing content
 
 #### Cogility Docs
 

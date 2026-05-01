@@ -34,6 +34,16 @@ Accomplished Technical Writer with **8 + years** of experience producing hig
 
 ### PROFESSIONAL EXPERIENCE  
 
+**Senior Technical Writer** - *Kustomer* - Remote
+*2025–Present*
+
+- Architected and implemented an end-to-end documentation pipeline leveraging Cursor and Claude, transforming a reactive documentation process into a proactive, research-driven system.
+- Developed and deployed custom skills using Claude and Cursor integrated with Linear for automated review workflows, resulting in a 20-30% weekly reduction in documentation backlog.
+- Designed and enforced a comprehensive style guide specifically to train generative AI models, ensuring consistency and quality across documentation.
+- Developed a ‘Read My Slack’ automation using Claude to aggregate and analyze information from 75+ Slack channels, streamlining research and providing critical context for documentation creation.
+- Reduced missed releases to zero and decreased documentation service failure rates by 45% (Voice & Chat SDK) through automated workflow improvements & optimized research processes.
+
+
 **Technical Writer (Lead Documentarian)** – *Cogility* – Remote  
 *2022 – 2025*  
 
@@ -88,7 +98,6 @@ California State University, Northridge
 
 - **OCI Associate (ACTIVE)** - Foundational knowledge of public cloud services provided by Oracle. [View verification](https://catalog-education.oracle.com/ords/certview/sharebadge?id=CBA27920B8A650A253C03C1877438A98B3D318CB6D6387B8533700780228BDEA)
 - **CompTIA A+ (Expired – foundational hardware knowledge)**  
-- Ongoing coursework in **Product Management** and **Medical Technical Writing** (expected certification 2025)  
 
 ---
 
