@@ -19,6 +19,18 @@ I've collected a series of my best technical documentation, API docs, and blogs 
 
 I have archived each of these samples to preserve my work, but each sample should still be publicly accessible from their respective sources. 
 
+#### Kustomer Docs  
+
+1. [Using evaluations with the Kustomer API](https://developer.kustomer.com/kustomer-apps-platform/docs/using-evaluations-with-the-kustomer-api)
+
+An API guide on using Kustomer Evaluations. Before I began my work, this guide did not exist and this endpoint was largely undocumented. 
+
+After my work, Kustomer's Evaluations endpoint had:
+
+* Fully documented the Evaluations order of operations.
+* Defined key terminology necessary to understand and use Evaluations.
+* Provided practical coded examples.
+
 #### Cogility Docs
 
 ![Object Details Viewer](assets\images\Object-details-viewer-widget.png)

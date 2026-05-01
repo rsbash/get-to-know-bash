@@ -1,3 +1,8 @@
+---
+layout: default
+title: Quickstart Guide for Kustomer API
+---
+
 > The point of this exercise was to utilize AI to write a quickstart guide for a real product. I have broke this excercise down into these steps:
 >
 > 1. First, craft an intro that outlines starting requirements and briefly discusses the point of the guide. 
