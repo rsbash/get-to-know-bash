@@ -22,9 +22,9 @@ I have archived each of these samples to preserve my work, but each sample shoul
 
 #### Kustomer Docs  
 
-1. [Quick‑Start: Adding a Customer with Kustomer’s Node SDK](\quick-start-guide-Kustomer.html)
+1. [Quick‑Start: Adding a Customer with Kustomer’s Node SDK](other-samples/quick-start-guide-Kustomer.html)
 2. [Using evaluations with the Kustomer API](https://developer.kustomer.com/kustomer-apps-platform/docs/using-evaluations-with-the-kustomer-api)
-3. [Kustomer Voice Runbook](/other-samples/The-Kustomer-Voice-Runbook.pdf)
+3. [Kustomer Voice Runbook](other-samples/The-Kustomer-Voice-Runbook.pdf)
 
 An API guide on using Kustomer Evaluations. Before I began my work, this guide did not exist and this endpoint was largely undocumented. 
 
@@ -36,7 +36,7 @@ After my work at Kustomer:
 
 #### Cogility Docs
 
-![Object Details Viewer](assets\images\Object-details-viewer-widget.png)
+![Object Details Viewer](assets/images/Object-details-viewer-widget.png)
 
 Before I came to Cogility, docs were:
 
@@ -64,7 +64,7 @@ After my work on [docs.cogility.com](https://docs.cogility.com). Docs became:
 
 #### Cogility Sample Projects
 
-![Stock Valuation Model](assets\images\valuation-mode.png)
+![Stock Valuation Model](assets/images/valuation-mode.png)
 
 Before I started: 
 
@@ -78,7 +78,7 @@ I developed **10+ sample projects to accelerate onboarding** through real-world 
   * Used real-world data and practical ideas.
   * Directly correlated to a **15% increase in feature adoption** and a **30% bump in new model creation**. 
   
-[Laying the Groundwork](/cogynt_docs/Laying_the_Groundwork_Cogynt_Docs.pdf) 
+[Laying the Groundwork](cogynt_docs/Laying_the_Groundwork_Cogynt_Docs.pdf) 
   
   * Describes how to upload files in Cogynt.
   * Includes workflow diagrams and technical instruction. 
@@ -91,7 +91,7 @@ I developed **10+ sample projects to accelerate onboarding** through real-world 
 
 #### Uptime.com Docs
 
-![Uptime's Support page](assets\images\uptime-support.png)
+![Uptime's Support page](assets/images/uptime-support.png)
 
 Before my work on [Uptime.com's Documentation](https://web.archive.org/web/20230122142102/https://support.uptime.com/hc/en-us), docs were:
 
@@ -105,12 +105,12 @@ After my work:
   * Proactive documentation **reduced bug tickets by 15% month over month**, as measured in ZenDesk Support.
   * **Feature adoption increased by 18%** as measured by in-app analytics. 
   
-[API Check Documentation](/Uptime_docs/API_Check_Basics–Uptime.com.htm) 
+[API Check Documentation](Uptime_docs/API_Check_Basics–Uptime.com.htm) 
   
   * Describes methods for using the API check, including password masking, sample requests and responses, and advanced multi-step check construction.
   * Includes screenshots from the UI, code examples, sample response and requests, technical instruction. 
   
-[API Documentation](/Uptime_docs/Getting_Started_with_Uptime.com_REST_API.htm)
+[API Documentation](Uptime_docs/Getting_Started_with_Uptime.com_REST_API.htm)
   
   * Describes Authorization and basic API functionality for the Uptime.com REST API. Meant for less technical users and beginners. 
   * Includes screenshots and UI callouts, technical instruction for authorization, and descriptions for each endpoint. 
@@ -118,7 +118,7 @@ After my work:
 
 #### Uptime.com Blogs
 
-![What is 99.9% Uptime?](assets\images\999-uptime-main-blog-700x394.png)
+![What is 99.9% Uptime?](assets/images/999-uptime-main-blog-700x394.png)
 
 Before my work, Uptime.com's blog:
 
@@ -139,17 +139,17 @@ After my work on Uptime.com's blog:
 
 [Uptime.com Author Page (Archived)](https://web.archive.org/web/20231202220840/https://uptime.com/blog/author/richardb)
  
-[99.9% Uptime](Uptime_docs\What_Does_99_9_Uptime_Mean.htm)
+[99.9% Uptime](Uptime_docs/What_Does_99_9_Uptime_Mean.htm)
     
   * Describes what 99.9% means in technical detail, conversational tone, SEO optimized. 
   * **Increased search traffic month over month by 30%**, as measured by blog analytics.
  
-[Preparing to Fail Fast](Uptime_docs\Preparing_to_Fail_Fast.htm)
+[Preparing to Fail Fast](Uptime_docs/Preparing_to_Fail_Fast.htm)
 
   * Describes the concept of "failing fast" and relates back to Uptime.com features. 
   * Highly trafficked thought leadership piece, with **40% of traffic coming from social sources**, as measured by blog and social analytics.
 
-[G2 Article](Uptime_docs\Choose_Website_Monitoring_Provider.htm) 
+[G2 Article](Uptime_docs/Choose_Website_Monitoring_Provider.htm) 
 
 * Partnered with G2 crowd to create a thought leadership piece aimed at assisting customers looking for web monitoring. 
 * **Expanded search real estate through G2**, creating a **major boost in credibility** and **adding external search links for SEO**. 
@@ -174,7 +174,7 @@ After my work on Uptime.com's blog:
   * Designed to showcase endpoints demonstrating a real-world use case.
   * Includes sample response and request data, and technical instruction.  
 
-[Changing a bike tire](\10-speed-bike-tube-replacement.html)
+[Changing a bike tire](10-speed-bike-tube-replacement.html)
 
 * Made for the DRT 1.1 Mountain Bike
 * Demonstrates hardware technical writing prowess
