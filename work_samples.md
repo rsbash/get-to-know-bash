@@ -174,3 +174,7 @@ After my work on Uptime.com's blog:
   * Designed to showcase endpoints demonstrating a real-world use case.
   * Includes sample response and request data, and technical instruction.  
 
+[Changing a bike tire](\10-speed-bike-tube-replacement.html)
+
+* Made for the DRT 1.1 Mountain Bike
+* Demonstrates hardware technical writing prowess
