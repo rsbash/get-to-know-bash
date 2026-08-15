@@ -4,7 +4,7 @@ title: "What is it you'd say you, uh, do here- exactly?"
 date: 2026-08-10 00:00:00 -0500
 ---
 
-![Office Space](../assets/images/images.jpg)
+![Office Space]({{ '/assets/images/images.jpg' | relative_url }})
 
 My name is Richard and I am an AI survivor and technical writer. I use _honey_ conversationally, despite the only Southern part of me being from California. And one of life's questions that I've always found hardest to answer has been: 
 
@@ -36,7 +36,7 @@ because I think it's relatable. It still thrills me when someone goes:
 
 > OMG, I guess someone does actually have to write those.
 
-![Grinch Heart](../assets/images/images.png)
+![Grinch Heart]({{ '/assets/images/images.png' | relative_url }})
 
 But deep down in my Grinch heart, I feel that what I do is no longer so simple. I'll keep going because I have to, but I'm also lamenting what AI took from me about this profession that I actually enjoyed. 
 
