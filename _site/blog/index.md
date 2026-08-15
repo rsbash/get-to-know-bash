@@ -1,1 +1,0 @@
-Welcome to my collection of ponderous thoughts on technical writing. 
