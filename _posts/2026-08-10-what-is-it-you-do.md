@@ -1,7 +1,7 @@
 ---
-
+layout: post
 title: "What is it you'd say you, uh, do here- exactly?"
-
+date: 2026-08-10 00:00:00 -0500
 ---
 
 ![Office Space](../assets/images/images.jpg)
