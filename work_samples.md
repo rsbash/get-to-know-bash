@@ -9,12 +9,46 @@ title: My Writing Samples
 
 I've collected a series of my best technical documentation, API docs, and blogs for review.
 
-1. [I modernized Kustomer's documentation pipeline to aggressively tackle rot and rapid feature release.](#kustomer-docs)
-1. [I transformed Cogility's docs from a monolithic PDF into accessible, feature-first documentation.](#cogility-docs)
-2. [I built Cogynt's Sample Project Library, tiered training that reduced onboarding significantly.](#cogility-sample-projects)
-3. [I took Uptime.com's documentation from engineer-driven to user relatable.](#uptimecom-docs)
-4. [I tripled Uptime.com's blog traffic, and created repeatable processes to write SEO-focused blogs with a unified voice and style.](#uptimecom-blogs)
-5. [I've written a number of evergreen examples of API and software documentation and collected them here.](#evergreen)
+1. [Evergreen examples of API and software documentation.](#evergreen)
+2. [Published and public samples](#published-and-public)
+    1. [Kustomer documentation.](#kustomer-docs)
+    2. [Cogility documentation.](#cogility-docs)
+    3. [Cogynt's Sample Projects.](#cogility-sample-projects)
+    4. [Uptime.com documentation.](#uptimecom-docs)
+
+### Evergreen
+
+[Sample API Documentation - ODPDiscGolfTrading](opd-api-docs-example.html) 
+
+  * Designed to showcase simple Authorization and calls, with sample response and request details. 
+  * Detail oriented, using real-world examples that require structure and thoughtful design. 
+  * Includes coded examples and technical instruction. 
+  * Structured with assistance from Google Gemma, written and edited by a human.
+
+[Axiomatic Digital Compass Support Documentation](other-samples/axiomatic-example.html) 
+
+  * Designed to showcase typical writing for a user-facing and less technical audience. 
+  * Includes screenshots, UI diagrams, simplified and readable instruction. 
+
+[Axiomatic API Documentation](other-samples/axiomatic-api-docs-example.html) 
+
+  * Designed to showcase endpoints demonstrating a real-world use case.
+  * Includes sample response and request data, and technical instruction.  
+
+[Changing a bike tire](other-samples/10-speed-bike-tube-replacement.html)
+
+* Made for the DRT 1.1 Mountain Bike.
+* Demonstrates hardware technical writing prowess.
+
+[Intro to GraphQL](other-samples/intro-graphQL.html)
+
+* Written as an evergreen technical sample.
+* Uses a popular standard with a published reference to quickly view and track changes.
+
+[GraphQL Brief](other-samples/GraphQL-brief.pdf)
+
+* Written as an evergreen technical sample.
+* Demonstrates ability to make formal change requests. 
 
 ### Published and Public
 
@@ -115,76 +149,14 @@ After my work:
   * Describes Authorization and basic API functionality for the Uptime.com REST API. Meant for less technical users and beginners. 
   * Includes screenshots and UI callouts, technical instruction for authorization, and descriptions for each endpoint. 
 
-
-#### Uptime.com Blogs
-
-![What is 99.9% Uptime?](assets/images/999-uptime-main-blog-700x394.png)
-
-Before my work, Uptime.com's blog:
-
-  * Had **no strategy to capture search traffic**.
-  * Was **stagnant**, offering no new use cases.
-  * **Did not promote or announce new features.**
-  * Had **no posting cadence** to attract and keep readers interested. 
-  * Failed to utilize Uptime.com's existing search real estate.
-
-After my work on Uptime.com's blog:
-
-  * **External search traffic tripled**, as measured by in-app analytics.
-  * A **consistent voice was established** through style guide creation. 
-  * Technical blogs **improved repeat readership by 25%**, as measured by platform analytics.
-  * Regular posting cadence and newsletter creation **improved regular readership**, driving significant traffic.
-  * **Top-of-funnel feeding improved** new sales contacts by **35% year over year**.
-
-
 [Uptime.com Author Page (Archived)](https://web.archive.org/web/20231202220840/https://uptime.com/blog/author/richardb)
  
 [99.9% Uptime](Uptime_docs/What_Does_99_9_Uptime_Mean.htm)
     
   * Describes what 99.9% means in technical detail, conversational tone, SEO optimized. 
   * **Increased search traffic month over month by 30%**, as measured by blog analytics.
- 
-[Preparing to Fail Fast](Uptime_docs/Preparing_to_Fail_Fast.htm)
-
-  * Describes the concept of "failing fast" and relates back to Uptime.com features. 
-  * Highly trafficked thought leadership piece, with **40% of traffic coming from social sources**, as measured by blog and social analytics.
 
 [G2 Article](Uptime_docs/Choose_Website_Monitoring_Provider.htm) 
 
 * Partnered with G2 crowd to create a thought leadership piece aimed at assisting customers looking for web monitoring. 
 * **Expanded search real estate through G2**, creating a **major boost in credibility** and **adding external search links for SEO**. 
-
-
-### Evergreen
-
-[Sample API Documentation - ODPDiscGolfTrading](opd-api-docs-example.html) 
-
-  * Designed to showcase simple Authorization and calls, with sample response and request details. 
-  * Detail oriented, using real-world examples that require structure and thoughtful design. 
-  * Includes coded examples and technical instruction. 
-  * Structured with assistance from Google Gemma, written and edited by a human.
-
-[Axiomatic Digital Compass Support Documentation](other-samples/axiomatic-example.html) 
-
-  * Designed to showcase typical writing for a user-facing and less technical audience. 
-  * Includes screenshots, UI diagrams, simplified and readable instruction. 
-
-[Axiomatic API Documentation](other-samples/axiomatic-api-docs-example.html) 
-
-  * Designed to showcase endpoints demonstrating a real-world use case.
-  * Includes sample response and request data, and technical instruction.  
-
-[Changing a bike tire](other-samples/10-speed-bike-tube-replacement.html)
-
-* Made for the DRT 1.1 Mountain Bike.
-* Demonstrates hardware technical writing prowess.
-
-[Intro to GraphQL](other-samples/intro-graphQL.html)
-
-* Written as an evergreen technical sample.
-* Uses a popular standard with a published reference to quickly view and track changes.
-
-[GraphQL Brief](other-samples/GraphQL-brief.pdf)
-
-* Written as an evergreen technical sample.
-* Demonstrates ability to make formal change requests. 
