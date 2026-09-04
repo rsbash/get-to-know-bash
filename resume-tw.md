@@ -8,7 +8,7 @@ title: My Resume
 
 
 **RICHARD BASHARA**  
- Los Angeles, CA | (818) 916‑3347 | [RichardBashara@gmail.com](mailto:RichardBashara@gmail.com) | [LinkedIn](https://www.linkedin.com/in/richardbashara/) | [Work Samples](https://rsbash.github.io/get-to-know-bash/work_samples.html)
+ Los Angeles, CA | ASK ME | RichardBashara @ gmail . com | [LinkedIn](https://www.linkedin.com/in/richardbashara/) | [Work Samples](https://rsbash.github.io/get-to-know-bash/work_samples.html)
 
 ---
 
