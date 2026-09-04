@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "What if docs ran your company?"
-date: 2026-08-20 00:00:00 -0500
+date: 2026-09-03 00:00:00 -0500
 ---
 
 # What if Technical Writers Ran Your Company? (A Thought Experiment)
