@@ -3,6 +3,11 @@ layout: default
 title: My Writing Samples
 ---
 
+| | | | | |
+| --- | --- | --- | --- | --- | 
+| [Home]({{ '/' | relative_url }}) | [Blog]({{ '/blog/' | relative_url }}) | [Resume]({{ '/resume-tw.html' | relative_url }}) | [References]({{ '/references.html' | relative_url }}) | **Work samples** |
+
+
 [Back](index.html)
 
 ## Writing Samples
@@ -18,7 +23,7 @@ I've collected a series of my best technical documentation, API docs, and blogs 
 
 ### Evergreen
 
-[Sample API Documentation - ODPDiscGolfTrading](opd-api-docs-example.html) 
+[Sample API Documentation - ODPDiscGolfTrading](other-samples/opd-api-docs-example.html) 
 
   * Designed to showcase simple Authorization and calls, with sample response and request details. 
   * Detail oriented, using real-world examples that require structure and thoughtful design. 

@@ -6,7 +6,7 @@ title: Axiomatic Digital Compass - Sample Document
 
 # Using the Digital Compass from Axiomatic
 
-[Back](work_samples.html)
+[Back]({{ '/work_samples.html' | relative_url }})
 
 📌 **Author:**
 Richard Bashara

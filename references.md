@@ -3,6 +3,9 @@ layout: default
 title: References
 ---
 
+| | | | | |
+| --- | --- | --- | --- | --- | 
+| [Home]({{ '/' | relative_url }}) | [Blog]({{ '/blog/' | relative_url }}) | [Resume]({{ '/resume-tw.html' | relative_url }}) | **References** | [Work samples]({{ '/work_samples.html' | relative_url }}) |
 
 # References of Richard's Work Ethic and Character
 

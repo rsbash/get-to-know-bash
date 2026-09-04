@@ -2,8 +2,11 @@
 layout: default
 title: Home
 ---
+| | | | | |
+| --- | --- | --- | --- | --- | 
+| **Home** | [Blog]({{ '/blog/' | relative_url }}) | [Resume]({{ '/resume-tw.html' | relative_url }}) | [References]({{ '/references.html' | relative_url }}) | [Work samples]({{ '/work_samples.html' | relative_url }}) |
 
-# Richard Bashara | Portfolio
+# Richard Bashara | Portfolio   
 ### Tech Writer & Knowledge Management 
 
 ![Richard Bashara, Technical Writer](./assets/images/me.jpg){: .profile-circle }
@@ -23,7 +26,7 @@ Beyond the office, I am community focused. Because I believe I can directly impr
 
 I am ready to write concise, actionable documentation that accelerates user onboarding and delivers measurable impact for you. 
 
-* [Work samples](work_samples.html)
-* [Blog](blog/)
-* [Resume](resume-tw.html)
-* [References](references.html)
+* [Blog]({{ '/blog/' | relative_url }})
+* [Resume]({{ '/resume-tw.html' | relative_url }})
+* [References]({{ '/references.html' | relative_url }})
+* [Work samples]({{ '/work_samples.html' | relative_url }})

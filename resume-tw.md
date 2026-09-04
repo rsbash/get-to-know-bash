@@ -3,8 +3,9 @@ layout: default
 title: My Resume
 ---
 
-[Back](index.html)
-
+| | | | | |
+| --- | --- | --- | --- | --- | 
+| [Home]({{ '/' | relative_url }}) | [Blog]({{ '/blog/' | relative_url }}) | **Resume** | [References]({{ '/references.html' | relative_url }}) | [Work samples]({{ '/work_samples.html' | relative_url }}) |
 
 
 **RICHARD BASHARA**  

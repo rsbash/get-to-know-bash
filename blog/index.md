@@ -3,6 +3,9 @@ layout: default
 title: Blog
 permalink: /blog/
 ---
+| | | | | |
+| --- | --- | --- | --- | --- | 
+| [Home]({{ '/' | relative_url }}) | **Blog** | [Resume]({{ '/resume-tw.html' | relative_url }}) | [References]({{ '/references.html' | relative_url }}) | [Work samples]({{ '/work_samples.html' | relative_url }}) |
 
 [Back to home]({{ '/' | relative_url }})
 
