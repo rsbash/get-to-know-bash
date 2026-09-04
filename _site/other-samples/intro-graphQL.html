@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Introduction to GraphQL | Get to Know Bash</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Introduction to GraphQL" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Find the resume and work samples of Richard Bashara here." />
+<meta property="og:description" content="Find the resume and work samples of Richard Bashara here." />
+<link rel="canonical" href="http://localhost:4000/other-samples/intro-graphQL.html" />
+<meta property="og:url" content="http://localhost:4000/other-samples/intro-graphQL.html" />
+<meta property="og:site_name" content="Get to Know Bash" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Introduction to GraphQL" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Find the resume and work samples of Richard Bashara here.","headline":"Introduction to GraphQL","url":"http://localhost:4000/other-samples/intro-graphQL.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <link rel="stylesheet" href="/assets/css/main.css">
+<script>
+// Function to expand details when hash link is clicked
+function expandAncestorDetails(element) {
+  let parent = element.parentElement;
+  while (parent) {
+    if (parent.tagName === 'DETAILS') {
+      parent.open = true;
+    }
+    parent = parent.parentElement;
+  }
+}
+
+// Handle direct navigation to hash URLs
+if (window.location.hash) {
+  const targetElement = document.querySelector(window.location.hash);
+  if (targetElement) {
+    expandAncestorDetails(targetElement);
+    // Smooth scroll to the element
+    targetElement.scrollIntoView();
+  }
+}
+
+// Handle clicks on TOC links
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.toc a[href^="#"]');
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        e.preventDefault();
+        expandAncestorDetails(targetElement);
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+        // Update URL hash
+        history.pushState(null, null, targetId);
+      }
+    });
+  });
+});
+</script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="/assets/js/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="/assets/css/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <ul>
+            <li class="fork"><a href="">View On GitHub</a></li>
+            
+              <li class="downloads"><a href="">ZIP</a></li>
+              <li class="downloads"><a href="">TAR</a></li>
+              <li class="title">DOWNLOADS</li>
+            
+          </ul>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Get to Know Bash</h1>
+          <p>Find the resume and work samples of Richard Bashara here.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href=""></a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></span>
+        </div>
+
+        <h1 id="introduction-to-graphql">Introduction to GraphQL</h1>
+
+<p>GraphQL is a query language for your API, and a server-side runtime for executing queries using a <code class="language-plaintext highlighter-rouge">type</code> system you define for your data. The <a href="https://spec.graphql.org/">GraphQL specification</a> was open-sourced in 2015 and has since been implemented in <a href="https://graphql.org/community/tools-and-libraries/?tags=server">a variety of programming languages</a>.</p>
+
+<p>If you’re already familiar with GraphQL, learn how <a href="https://graphql.org/community/tools-and-libraries/?tags=client">client applications can query existing GraphQL APIs</a>.</p>
+
+<h2 id="describe-your-api-with-a-type-system">Describe your API with a type system</h2>
+
+<p>A GraphQL service is created by <a href="https://graphql.org/learn/schema/">defining types and their fields</a>, and then writing a function for each field to <a href="https://graphql.org/learn/execution/">provide the required data</a>.</p>
+
+<p>For example, a GraphQL service that tells you the name of a logged-in user might look like this:</p>
+
+<div class="language-graphql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">type</span><span class="w"> </span><span class="n">Query</span><span class="w"> </span><span class="p">{</span><span class="w">  
+  </span><span class="n">me</span><span class="p">:</span><span class="w"> </span><span class="n">User</span><span class="w">  
+</span><span class="p">}</span><span class="w">  
+   
+</span><span class="k">type</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="p">{</span><span class="w">  
+  </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w">  
+</span><span class="p">}</span><span class="w">  
+</span></code></pre></div></div>
+
+<p>Along with functions for each field on each type:</p>
+
+<div class="language-graphql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">//</span><span class="w"> </span><span class="err">Resolver</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">`me`</span><span class="w"> </span><span class="err">field</span><span class="w"> </span><span class="err">on</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">`Query`</span><span class="w"> </span><span class="k">type</span><span class="w">
+</span><span class="n">function</span><span class="w"> </span><span class="n">resolveQueryMe</span><span class="p">(</span><span class="n">_parent</span><span class="p">,</span><span class="w"> </span><span class="n">_args</span><span class="p">,</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">_info</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  
+  </span><span class="n">return</span><span class="w"> </span><span class="n">context</span><span class="err">.</span><span class="n">request</span><span class="err">.</span><span class="n">auth</span><span class="err">.</span><span class="n">user</span><span class="err">;</span><span class="w">  
+</span><span class="p">}</span><span class="w">  
+   
+</span><span class="err">//</span><span class="w"> </span><span class="err">Resolver</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">`name`</span><span class="w"> </span><span class="err">field</span><span class="w"> </span><span class="err">on</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">`User`</span><span class="w"> </span><span class="k">type</span><span class="w">  
+</span><span class="n">function</span><span class="w"> </span><span class="n">resolveUserName</span><span class="p">(</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">_args</span><span class="p">,</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">_info</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+  </span><span class="n">return</span><span class="w"> </span><span class="n">context</span><span class="err">.</span><span class="n">db</span><span class="err">.</span><span class="n">getUserFullName</span><span class="p">(</span><span class="n">user</span><span class="err">.</span><span class="n">id</span><span class="p">)</span><span class="err">;</span><span class="w">  
+</span><span class="p">}</span><span class="w">  
+</span></code></pre></div></div>
+
+<p>In the example above, the function data maps as follows:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Type</th>
+      <th style="text-align: center">Query</th>
+      <th style="text-align: center">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">Query</code></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">me</code></td>
+      <td style="text-align: center">The authenticated user.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">User</code></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">name</code></td>
+      <td style="text-align: center">The user’s name, populated after using the user’s ID to fetch their full name details from the database.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="query-exactly-what-you-need">Query exactly what you need</h2>
+
+<p>When a GraphQL service (like a web URL) runs, it can receive <a href="https://graphql.org/learn/queries/">GraphQL queries</a> to validate and execute from clients. The service:</p>
+
+<ol>
+  <li>Checks the query to ensure it only refers to defined types and fields used by the API.</li>
+  <li>Runs the provided functions.</li>
+  <li>Produces a result.</li>
+</ol>
+
+<p>For example, this query:</p>
+
+<div class="language-graphql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
+  </span><span class="n">me</span><span class="w"> </span><span class="p">{</span><span class="w">  
+    </span><span class="n">name</span><span class="w">  
+  </span><span class="p">}</span><span class="w">  
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Could produce the following JSON result:</p>
+
+<div class="language-graphql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
+  </span><span class="err">"</span><span class="n">data</span><span class="err">":</span><span class="w"> </span><span class="p">{</span><span class="w">  
+    </span><span class="err">"</span><span class="n">me</span><span class="err">":</span><span class="w"> </span><span class="p">{</span><span class="w">  
+      </span><span class="err">"</span><span class="n">name</span><span class="err">":</span><span class="w"> </span><span class="err">"</span><span class="n">Luke</span><span class="w"> </span><span class="n">Skywalker</span><span class="err">"</span><span class="w">  
+    </span><span class="p">}</span><span class="w">  
+  </span><span class="p">}</span><span class="w">  
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>With GraphQL, clients make queries to the API that mirror the structure of the data they need. The response is returned in the defined shape with a single request, and without concern for the underlying data sources that provided it.</p>
+
+<h2 id="evolve-your-api-without-versioning">Evolve your API without versioning</h2>
+
+<p>GraphQL can evolve in response to client requirements that change over time. In this example,  the <code class="language-plaintext highlighter-rouge">User</code> type calls for more specific name values, updating the end user as follows:</p>
+
+<div class="language-graphql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">type</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="p">{</span><span class="w">  
+  </span><span class="n">fullName</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w">  
+  </span><span class="n">nickname</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w">  
+  </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="w"> </span><span class="err">@</span><span class="n">deprecated</span><span class="p">(</span><span class="n">reason</span><span class="p">:</span><span class="w"> </span><span class="err">"</span><span class="n">Use</span><span class="w"> </span><span class="err">`</span><span class="n">fullName</span><span class="err">`."</span><span class="p">)</span><span class="w">  
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Client tooling encourages developers to use these new fields and deprecate old and unused fields, with no interruptions to data retrieval.</p>
+
+<h2 id="try-it-out">Try it out!</h2>
+
+<p>The best way to learn GraphQL is to start writing queries.</p>
+
+<p>This guide’s query editors are <strong>interactive</strong>, so try adding <code class="language-plaintext highlighter-rouge">id</code> and <code class="language-plaintext highlighter-rouge">appearsIn</code> fields to the <code class="language-plaintext highlighter-rouge">hero</code> object to see an updated result:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Operation</th>
+      <th style="text-align: left">Response</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{ hero { name # add additional fields here! } }</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{ "data": { "hero": { "name": "R2-D2" } } }</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong> The examples in this guide are based on <a href="https://github.com/graphql/graphql.github.io/blob/source/src/components/interactive-code-block/swapi-schema.tsx">a modified version of the SWAPI GraphQL schema</a>. Because these queries are designed for illustrative purposes, they will not run on the full version of the SWAPI GraphQL API due to differences between the two schemas. <a href="https://graphql.org/swapi-graphql/">You can try the full version of the API here.</a></p>
+
+<h2 id="next-steps">Next steps</h2>
+
+<p>Now that you know some key GraphQL concepts:</p>
+
+<ul>
+  <li>Learn about the different aspects of its <a href="https://graphql.org/learn/schema/">type system</a>.</li>
+  <li>Deep dive with <a href="https://graphql.org/community/resources/training-courses/">these available training courses</a>.</li>
+</ul>
+
+
+      </section>
+
+    </div>
+  </body>
+</html>

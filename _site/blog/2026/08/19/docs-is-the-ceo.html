@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>What if docs ran your company? | Get to Know Bash</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="What if docs ran your company?" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="What if Technical Writers Ran Your Company? (A Thought Experiment)" />
+<meta property="og:description" content="What if Technical Writers Ran Your Company? (A Thought Experiment)" />
+<link rel="canonical" href="http://localhost:4000/blog/2026/08/19/docs-is-the-ceo.html" />
+<meta property="og:url" content="http://localhost:4000/blog/2026/08/19/docs-is-the-ceo.html" />
+<meta property="og:site_name" content="Get to Know Bash" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-08-19T22:00:00-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="What if docs ran your company?" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-08-19T22:00:00-07:00","datePublished":"2026-08-19T22:00:00-07:00","description":"What if Technical Writers Ran Your Company? (A Thought Experiment)","headline":"What if docs ran your company?","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2026/08/19/docs-is-the-ceo.html"},"url":"http://localhost:4000/blog/2026/08/19/docs-is-the-ceo.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <link rel="stylesheet" href="/assets/css/main.css">
+<script>
+// Function to expand details when hash link is clicked
+function expandAncestorDetails(element) {
+  let parent = element.parentElement;
+  while (parent) {
+    if (parent.tagName === 'DETAILS') {
+      parent.open = true;
+    }
+    parent = parent.parentElement;
+  }
+}
+
+// Handle direct navigation to hash URLs
+if (window.location.hash) {
+  const targetElement = document.querySelector(window.location.hash);
+  if (targetElement) {
+    expandAncestorDetails(targetElement);
+    // Smooth scroll to the element
+    targetElement.scrollIntoView();
+  }
+}
+
+// Handle clicks on TOC links
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.toc a[href^="#"]');
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        e.preventDefault();
+        expandAncestorDetails(targetElement);
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+        // Update URL hash
+        history.pushState(null, null, targetId);
+      }
+    });
+  });
+});
+</script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="/assets/js/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="/assets/css/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <ul>
+            <li class="fork"><a href="">View On GitHub</a></li>
+            
+              <li class="downloads"><a href="">ZIP</a></li>
+              <li class="downloads"><a href="">TAR</a></li>
+              <li class="title">DOWNLOADS</li>
+            
+          </ul>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Get to Know Bash</h1>
+          <p>Find the resume and work samples of Richard Bashara here.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href=""></a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></span>
+        </div>
+
+        <p><a href="/blog/">← Back to blog</a></p>
+
+<h1>What if docs ran your company?</h1>
+<p><em>August 19, 2026</em></p>
+
+<h1 id="what-if-technical-writers-ran-your-company-a-thought-experiment">What if Technical Writers Ran Your Company? (A Thought Experiment)</h1>
+
+<p>I’m currently a docs team of one. Naturally, this leads me to daydream: what would I do if I had a team of five? What if I had ten? How much better could our documentation be?</p>
+
+<p>But that’s small fries, isn’t it? We’re on LinkedIn crafting thought leadership content, so let’s be thought <em>leaders</em>.</p>
+
+<p>Congratulations to me: I’ve just promoted myself. I now run Company Co. LLC.</p>
+
+<p>As soon as I get back from touring Europe and moving to my new house on a hill, here is exactly how our new docs-led organization is going to operate.</p>
+
+<h2 id="1-usability-first-or-how-to-stop-bleeding-money">1. Usability First (or, How to Stop Bleeding Money)</h2>
+
+<p>Usability is a notoriously nebulous term to people who think in dollars. Is usability a good thing? Does it just mean we’re spending more money on UX research?</p>
+
+<p>Let’s simplify this into terms that make sense to the C-Suite: <em>usability means your product stops costing you money.</em></p>
+
+<p>When docs are at the forefront of development, your product is inherently tested and usable before it ships. Its paths are well-defined and easy to describe intuitively to someone who doesn’t have the interface right in front of them. Because it is intuitive, you’re not spending money answering repeat tickets or building out convoluted automations to handle edge cases. You’re focusing on the big issues that actually affect retention.</p>
+
+<blockquote>
+  <p>A 30% drop in ticket volume on a single high‑impact article translates into $45k–$60k per year in avoided support costs (500 tickets × $25 × 30% × 8 articles).</p>
+</blockquote>
+
+<p>When you scale that mindset, the numbers get absurd:</p>
+
+<blockquote>
+  <p>IDC measured an average $3.8M annual benefit per company from structured, modular docs—a 287% three‑year ROI. Socure achieved full ROI in &lt;4 months after cutting onboarding time 30% and support queries 60%.</p>
+</blockquote>
+
+<h2 id="2-demand-led-product-growth">2. Demand-Led Product Growth</h2>
+
+<p>Demand is a beautiful word. When people demand something, they’re willing to pay for it. But wait—you mean we need to <em>wait</em> for the demand? It doesn’t just manifest because we updated our brand colors?</p>
+
+<p>Now that we’ve replaced quarterly-growth-obsessed leadership with technical writers, the product grows based on real customer feedback loops. To retain clients, you regularly meet with them and close the gaps they face in support. You win awards. Customers say, <em>“They actually listen. They make a product I want to buy, and when I have a problem, they refine the product to solve it.”</em></p>
+
+<p>This earns you new clients without your marketing team scrambling to invent features that don’t exist yet.</p>
+
+<p>Is this strategy slow? Yes. It’s much <em>slower</em> than shoving a ton of cash at PPC ads and courting potential leads with tickets to Lakers games. But it builds a foundation that doesn’t crumble.</p>
+
+<h2 id="3-refine-and-improve-avoiding-the-danger-zone">3. Refine and Improve (Avoiding the Danger Zone)</h2>
+
+<p>You avoid scope creep by spending your off-hours asking: <em>how could this be better?</em> The solution to better docs isn’t always more docs. The solution to a better product shouldn’t always be more product.</p>
+
+<p>When you just build, build, build, you outpace your ability to explain what you’ve built.</p>
+
+<blockquote>
+  <p>Mid‑size firms eventually hit a “danger zone” where engineering outpaces writers; the resulting documentation debt fuels missed features, higher churn, and compliance exposure.</p>
+</blockquote>
+
+<h2 id="the-reality-check-why-we-would-go-bankrupt">The Reality Check: Why We Would Go Bankrupt</h2>
+
+<p><img src="/assets/images/infj3poem6je1.jpeg" alt="Hate to break it to you" /></p>
+
+<p>Here is the uncomfortable truth about my new role as CEO: if docs actually ran the company, we would probably run out of money in nine months. I would actually consider that a triumph.</p>
+
+<p>Why? Because technical writers are obsessed with clarity, completeness, and perfection. We want everything documented, tested, and polished before it ever sees the light of day.</p>
+
+<p>But out in the real world, “perfect” is the enemy of “keeping the lights on.”</p>
+
+<p>I’m trying, y’all.</p>
+
+<p>Docs rarely thinks about the dark arts of business survival: aggressive outbound sales, shipping an MVP (Minimum Viable Product) just to close a massive Q3 enterprise deal, or taking on strategic technical debt to beat a competitor to market.</p>
+
+<p>If docs ruled the world, we’d spend six weeks arguing over the taxonomy of the navigation menu while a scrappy competitor steals our market share with a buggy—but available—product. We don’t want to launch until it’s “right.” The slimmer your docs team gets, the more acute that pressure becomes, especially when folks suggest AI can just replace critical thought and hands-on testing (spoiler: the best automations will still miss bugs a human catches instantly).</p>
+
+<p>Docs can’t handle the raw velocity required to keep a company funded. We just can’t.</p>
+
+<p>Don’t even try to argue with me, especially if you have a backlog right now. You know who you are.</p>
+
+<h2 id="the-radical-idea-that-isnt">The Radical Idea That Isn’t</h2>
+
+<p>So, no, technical writers shouldn’t run the company. But we <em>should</em> be sitting right next to the people who do.</p>
+
+<p>The reality is that at the most successful tech companies, docs already report either directly to the C-Suite or to the person right beneath them. If docs has an issue, the VP and the entire product team have an issue.</p>
+
+<p>Look at the companies doing it right:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Company</th>
+      <th style="text-align: left">Docs Leadership Role</th>
+      <th style="text-align: left">Strategic Impact</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Adobe</strong></td>
+      <td style="text-align: left">Director of Technical Documentation <em>(reports to VP of Product)</em></td>
+      <td style="text-align: left">Leads structured-content strategy that delivered a $3.8M annual benefit and 287% ROI. Docs improvements are directly tied to revenue.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Socure</strong></td>
+      <td style="text-align: left">Head of Developer Experience <em>(a C-level “Customer Success” seat)</em></td>
+      <td style="text-align: left">Drove a 60% support-query reduction and 30% faster onboarding. Docs decisions are part of investor decks.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Stripe</strong></td>
+      <td style="text-align: left">Head of Docs <em>(reports to VP of Engineering)</em></td>
+      <td style="text-align: left">Embeds docs in engineering career ladders, runs “doc-star” recognitions, and built Markdoc. Docs quality is a core competitive advantage.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>dbt Labs</strong></td>
+      <td style="text-align: left">Product Documentation Lead <em>(on the Product Council)</em></td>
+      <td style="text-align: left">Docs are involved from ideation to launch—acting as a decision-making partner, not a downstream afterthought.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You don’t want a technical writer as your CEO. We’d break the company trying to fix it. But if you aren’t treating your docs team as a strategic partner in your product’s growth, you’re already breaking it yourself.</p>
+
+
+
+
+      </section>
+
+    </div>
+  </body>
+</html>

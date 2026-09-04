@@ -164,17 +164,27 @@ After my work on Uptime.com's blog:
   * Includes coded examples and technical instruction. 
   * Structured with assistance from Google Gemma, written and edited by a human.
 
-[Axiomatic Digital Compass Support Documentation](axiomatic-example.html) 
+[Axiomatic Digital Compass Support Documentation](other-samples/axiomatic-example.html) 
 
   * Designed to showcase typical writing for a user-facing and less technical audience. 
   * Includes screenshots, UI diagrams, simplified and readable instruction. 
 
-[Axiomatic API Documentation](axiomatic-api-docs-example.html) 
+[Axiomatic API Documentation](other-samples/axiomatic-api-docs-example.html) 
 
   * Designed to showcase endpoints demonstrating a real-world use case.
   * Includes sample response and request data, and technical instruction.  
 
-[Changing a bike tire](10-speed-bike-tube-replacement.html)
+[Changing a bike tire](other-samples/10-speed-bike-tube-replacement.html)
 
-* Made for the DRT 1.1 Mountain Bike
-* Demonstrates hardware technical writing prowess
+* Made for the DRT 1.1 Mountain Bike.
+* Demonstrates hardware technical writing prowess.
+
+[Intro to GraphQL](other-samples/intro-graphQL.html)
+
+* Written as an evergreen technical sample.
+* Uses a popular standard with a published reference to quickly view and track changes.
+
+[GraphQL Brief](other-samples/GraphQL-brief.pdf)
+
+* Written as an evergreen technical sample.
+* Demonstrates ability to make formal change requests. 
