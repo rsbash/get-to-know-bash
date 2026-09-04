@@ -1,10 +1,8 @@
 ---
 layout: post
 title: "What if docs ran your company?"
-date: 2026-09-03 00:00:00 -0500
+date: 2026-09-03 12:00:00 -0500
 ---
-
-# What if Technical Writers Ran Your Company? (A Thought Experiment)
 
 I’m currently a docs team of one. Naturally, this leads me to daydream: what would I do if I had a team of five? What if I had ten? How much better could our documentation be? 
 
@@ -22,7 +20,7 @@ Let's simplify this into terms that make sense to the C-Suite: *usability means 
 
 When docs are at the forefront of development, your product is inherently tested and usable before it ships. Its paths are well-defined and easy to describe intuitively to someone who doesn't have the interface right in front of them. Because it is intuitive, you're not spending money answering repeat tickets or building out convoluted automations to handle edge cases. You're focusing on the big issues that actually affect retention.
 
-> A 30% drop in ticket volume on a single high‑impact article translates into $45k–$60k per year in avoided support costs (500 tickets × $25 × 30% × 8 articles).
+> A 30% drop in ticket volume on a single high‑impact article translates into cost savings per year. 
 
 When you scale that mindset, the numbers get absurd:
 
@@ -77,7 +75,6 @@ Look at the companies doing it right:
 | **Adobe** | Director of Technical Documentation *(reports to VP of Product)* | Leads structured-content strategy that delivered a $3.8M annual benefit and 287% ROI. Docs improvements are directly tied to revenue. |
 | **Socure** | Head of Developer Experience *(a C-level "Customer Success" seat)* | Drove a 60% support-query reduction and 30% faster onboarding. Docs decisions are part of investor decks. |
 | **Stripe** | Head of Docs *(reports to VP of Engineering)* | Embeds docs in engineering career ladders, runs "doc-star" recognitions, and built Markdoc. Docs quality is a core competitive advantage. |
-| **dbt Labs** | Product Documentation Lead *(on the Product Council)* | Docs are involved from ideation to launch—acting as a decision-making partner, not a downstream afterthought. |
 
 You don't want a technical writer as your CEO. We'd break the company trying to fix it. But if you aren't treating your docs team as a strategic partner in your product's growth, you're already breaking it yourself.
 
