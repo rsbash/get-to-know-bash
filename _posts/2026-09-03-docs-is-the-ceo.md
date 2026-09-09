@@ -4,7 +4,7 @@ title: "What if docs ran your company?"
 date: 2026-09-03 12:00:00 -0500
 ---
 
-I’m currently a docs team of one. Naturally, this leads me to daydream: what would I do if I had a team of five? What if I had ten? How much better could our documentation be? 
+I’ve traditionally worked as a docs team of one. Naturally, this leads me to daydream: what would I do if I had a team of five? What if I had ten? How much better could documentation be with a slew of me? 
 
 But that’s small fries, isn't it? We're on LinkedIn crafting thought leadership content, so let's be thought _leaders_. 
 
