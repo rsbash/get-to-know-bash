@@ -65,7 +65,10 @@ I have archived each of these samples to preserve my work, but each sample shoul
 2. [Using evaluations with the Kustomer API](https://developer.kustomer.com/kustomer-apps-platform/docs/using-evaluations-with-the-kustomer-api)
 3. [Kustomer Voice Runbook](other-samples/The-Kustomer-Voice-Runbook.pdf)
 
-An API guide on using Kustomer Evaluations. Before I began my work, this guide did not exist and this endpoint was largely undocumented. 
+Before my work with Kustomer:
+
+* A substantial backlog had accumulated
+* Processes and documentation were out of date
 
 After my work at Kustomer:
 
