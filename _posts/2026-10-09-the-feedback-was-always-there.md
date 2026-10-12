@@ -7,7 +7,7 @@ date: 2026-10-09 12:00:00 -0500
 
 *If you're tired of dealing with a monsoon every sprint, changing where you look for feedback will help.*
 
-Docs work will arrive in waves, with a backlog and a strong sense of urgency behind them, if you don't proactively seek out and address feedback as it builds. I have fallen too often into this trap where `feedback == Google Analytics`, but a [State of Docs](https://www.stateofdocs.com/2026/measuring-docs-success) report from 2026 confirms what I've been feeling for a while: 
+Docs work will arrive in waves, with a backlog and a strong sense of urgency behind them if you don't proactively seek out and address feedback as it builds. I have fallen too often into this trap where `feedback == Google Analytics`, but a [State of Docs](https://www.stateofdocs.com/2026/measuring-docs-success) report from 2026 confirms what I've been feeling for a while: 
 
 > Customer feedback, support tickets, and user satisfaction scores have become as important as bounce rate to modern docs operations. 
 
@@ -40,7 +40,7 @@ In this article I'll cover:
 No one in an org larger than 100 is thinking "I'll tag the docs team for help on this". They are shouting into the ether, someone gives them an answer (or forms a code red to devise one) and boom, the _immediate_ problem is solved, but the gap continues to exist. I've found this invisible feedback reliably lives in these domains:
 
 1. Support tickets (usually, people need to know where something is and if they can do X with it)
-2. Sales demos and recorded calls (Your sales people are fielding questions every day you're rarely ever exposed to)
+2. Sales demos and recorded calls (Your sales people are fielding questions every day that you're rarely ever exposed to)
 3. Internal Slack channels, especially product-centric ones (Look for enablement or TSE folks asking questions)
 4. Coffee chats with colleagues (especially sales, enablement, and GTM folks)
 
@@ -56,7 +56,9 @@ You have incoming tickets, and access to a tagging and filtration system. Here a
 
 ### Tips to filter support ticket noise 
 
-If a ticket has gone unresolved for longer than three days, that's usually a sign your docs can help. To cut through the noise, include some common phrasing your customers use when they talk to your support reps. Here's my advice:
+If a ticket has gone unresolved for longer than three days, that's usually a sign your docs can help. Start with that baseline, but cut through the noise and include some common phrasing your customers use when they talk to your support reps. 
+
+Here's my advice:
 
 1. Pull up tickets from your company's largest customer and have a look at their main contact. Someone or a team reaches out more than any other entity. 
 2. Commit to reading 5 of their tickets to get a feel for how they talk. Jot down some keywords in a CSV. 
@@ -75,8 +77,6 @@ My list looked like this:
 | **Docs Confusion** | error code, what does, why, how to, cannot find, not in docs, version, migration, rate limit, scope, permission, dashboard, UI |
 | **Technical Issues** | webhook, signature, pagination, edge case, locale, language, translation, search, broken, typo, security, best practice, SDK, terminology, glossary | 
 
-Check the next section for some details you can copy paste and programmatically use.
-
 > This achievable strategy uncovers both gaps and use cases your customers actually perform with your application. A tier 2 issue can easily become a detailed runbook, tutorial, and more. 
 
 
@@ -92,9 +92,9 @@ To get started now, I suggest a prompt like this one when you need to write or e
 You are a technical editor fielding issues to convert into docs tickets. Your job is to review each ticket in the attached CSV and make a determination of whether this ticket represents a fix documentation can and should make. Examples include: missing or unclear instruction, tickets where multiple docs links were supplied to answer a single question, or tickets where docs were not supplied. Not billing tickets and not bug reports. 
 ```
 
-Call out specifcally what you want the LLM to find, and then give specific examples. Use "not" and be clear and strict about what not to include. Include quoted examples of the kind of data you want to find. 
+Call out specifcally what you want the LLM to find, and then give specific examples. Use "not" and be clear and strict about what not to include. Include quoted examples of the kind of data you want to find, as in directly quoted from your customers. 
 
-Then, give the LLM clear instruction:
+Then, give the LLM clear instruction when a match occurs:
 
 ```text
 For each ticket that qualifies as an issue docs can fix, produce an outline that contains the following:
