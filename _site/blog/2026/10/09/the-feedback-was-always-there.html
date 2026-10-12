@@ -208,9 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
   </tbody>
 </table>
 
-<blockquote>
-  <p>This achievable strategy uncovers both gaps and use cases your customers actually perform with your application. A tier 2 issue can easily become a detailed runbook, tutorial, and more.</p>
-</blockquote>
+<p>This achievable strategy uncovers both gaps and use cases your customers actually perform with your application. A tier 2 issue can easily become a detailed runbook, tutorial, and more.</p>
 
 <h3 id="prompting-llms-for-ticket-analysis">Prompting LLMs for ticket analysis</h3>
 
@@ -220,24 +218,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <p>To get started now, I suggest a prompt like this one when you need to write or edit a full document:</p>
 
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You are a technical editor fielding issues to convert into docs tickets. Your job is to review each ticket in the attached CSV and make a determination of whether this ticket represents a fix documentation can and should make. Examples include: missing or unclear instruction, tickets where multiple docs links were supplied to answer a single question, or tickets where docs were not supplied. Not billing tickets and not bug reports. 
-</code></pre></div></div>
+<blockquote>
+  <p>You are a technical editor fielding issues to convert into docs tickets. Your job is to review each ticket in the attached CSV and make a determination of whether this ticket represents a fix documentation can and should make. Examples include: missing or unclear instruction, tickets where multiple docs links were supplied to answer a single question, or tickets where docs were not supplied. Not billing tickets and not bug reports.</p>
+</blockquote>
 
 <p>Call out specifcally what you want the LLM to find, and then give specific examples. Use “not” and be clear and strict about what not to include. Include quoted examples of the kind of data you want to find, as in directly quoted from your customers.</p>
 
 <p>Then, give the LLM clear instruction when a match occurs:</p>
 
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>For each ticket that qualifies as an issue docs can fix, produce an outline that contains the following:
+<blockquote>
+  <p>For each ticket that qualifies as an issue docs can fix, produce an outline that contains the following:</p>
 
-1. An intro paragraph. Briefly explain the feature and the intended outcome. 
-2. Instruction on how to access the feature. Refer to the closest known location and rely on the reviewer to validate. 
-3. Instructions on how to edit or delete the feature, again relying on the reviewer to verify your closest known location. 
-4. Any open questions uncovered during your research that a Tech writer should follow up on with a SME. 
+  <ol>
+    <li>An intro paragraph. Briefly explain the feature and the intended outcome.</li>
+    <li>Instruction on how to access the feature. Refer to the closest known location and rely on the reviewer to validate.</li>
+    <li>Instructions on how to edit or delete the feature, again relying on the reviewer to verify your closest known location.</li>
+    <li>Any open questions uncovered during your research that a Tech writer should follow up on with a SME.</li>
+  </ol>
 
-List unordered bullet points to state all known supporting evidence. Flag any evidence you find that you cannot verify. 
+  <p>List unordered bullet points to state all known supporting evidence. Flag any evidence you find that you cannot verify.</p>
 
-[Insert CSV content or Ticket Transcript Here]
-</code></pre></div></div>
+  <p>[Insert CSV content or Ticket Transcript Here]</p>
+</blockquote>
+
 <p>Personally, I started with an outline until my style guide was consistently achieving output I considered 80% passable. At that point, I’m doing UI and feature nuance checks. This output refinement takes time, and the level of prompting required is worth coverage in its own post.</p>
 
 <p>The best output for starters acts as a framework that makes writing effortless. When you’re putting fingers to keyboard, it’s to refine and polish instruction and add your own linguistic and syntactic choices to the text.</p>
@@ -254,8 +257,9 @@ List unordered bullet points to state all known supporting evidence. Flag any ev
 
 <p>My prompting usually includes something like:</p>
 
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>In #channel, users @joe, @sally, and @rick usually have questions that involve engineering. Flag any non-billing questions from those users, as well as any other questions from other users that did not have a knowledge base link in the response
-</code></pre></div></div>
+<blockquote>
+  <p>In #channel, users @joe, @sally, and @rick usually have questions that involve engineering. Flag any non-billing questions from those users, as well as any other questions from other users that did not have a knowledge base link in the response</p>
+</blockquote>
 
 <p>BTW, this tip also works for sales channels. Your sales people usually type out a debrief, and sometimes link to their calls and demos. Your LLM can pick these up and highlight areas for review on your side.</p>
 
@@ -357,6 +361,9 @@ List unordered bullet points to state all known supporting evidence. Flag any ev
 <p><img src="/get-to-know-bash/assets/images/b2k7d2.jpg" alt="Bounce rate and CSAT comparison" /></p>
 
 <h2 id="whats-your-hidden-feedback-channel">What’s your hidden feedback channel?</h2>
+
+<p>Let’s <a href="https://www.linkedin.com/in/richardbashara/">Connect on LinkedIn</a> and talk about it.</p>
+
 
 
 

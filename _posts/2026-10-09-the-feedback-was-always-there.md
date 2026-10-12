@@ -77,7 +77,7 @@ My list looked like this:
 | **Docs Confusion** | error code, what does, why, how to, cannot find, not in docs, version, migration, rate limit, scope, permission, dashboard, UI |
 | **Technical Issues** | webhook, signature, pagination, edge case, locale, language, translation, search, broken, typo, security, best practice, SDK, terminology, glossary | 
 
-> This achievable strategy uncovers both gaps and use cases your customers actually perform with your application. A tier 2 issue can easily become a detailed runbook, tutorial, and more. 
+This achievable strategy uncovers both gaps and use cases your customers actually perform with your application. A tier 2 issue can easily become a detailed runbook, tutorial, and more. 
 
 
 ### Prompting LLMs for ticket analysis
@@ -88,26 +88,24 @@ Most CMS systems allow users to download a CSV of tickets. You don't even need f
 
 To get started now, I suggest a prompt like this one when you need to write or edit a full document:
 
-```text
-You are a technical editor fielding issues to convert into docs tickets. Your job is to review each ticket in the attached CSV and make a determination of whether this ticket represents a fix documentation can and should make. Examples include: missing or unclear instruction, tickets where multiple docs links were supplied to answer a single question, or tickets where docs were not supplied. Not billing tickets and not bug reports. 
-```
+> You are a technical editor fielding issues to convert into docs tickets. Your job is to review each ticket in the attached CSV and make a determination of whether this ticket represents a fix documentation can and should make. Examples include: missing or unclear instruction, tickets where multiple docs links were supplied to answer a single question, or tickets where docs were not supplied. Not billing tickets and not bug reports. 
 
 Call out specifcally what you want the LLM to find, and then give specific examples. Use "not" and be clear and strict about what not to include. Include quoted examples of the kind of data you want to find, as in directly quoted from your customers. 
 
 Then, give the LLM clear instruction when a match occurs:
 
-```text
-For each ticket that qualifies as an issue docs can fix, produce an outline that contains the following:
 
-1. An intro paragraph. Briefly explain the feature and the intended outcome. 
-2. Instruction on how to access the feature. Refer to the closest known location and rely on the reviewer to validate. 
-3. Instructions on how to edit or delete the feature, again relying on the reviewer to verify your closest known location. 
-4. Any open questions uncovered during your research that a Tech writer should follow up on with a SME. 
+> For each ticket that qualifies as an issue docs can fix, produce an outline that contains the following:
+>
+> 1. An intro paragraph. Briefly explain the feature and the intended outcome. 
+> 2. Instruction on how to access the feature. Refer to the closest known location and rely on the reviewer to validate. 
+> 3. Instructions on how to edit or delete the feature, again relying on the reviewer to verify your closest known location. 
+> 4. Any open questions uncovered during your research that a Tech writer should follow up on with a SME. 
+> 
+> List unordered bullet points to state all known supporting evidence. Flag any evidence you find that you cannot verify. 
+>
+> [Insert CSV content or Ticket Transcript Here]
 
-List unordered bullet points to state all known supporting evidence. Flag any evidence you find that you cannot verify. 
-
-[Insert CSV content or Ticket Transcript Here]
-```
 Personally, I started with an outline until my style guide was consistently achieving output I considered 80% passable. At that point, I'm doing UI and feature nuance checks. This output refinement takes time, and the level of prompting required is worth coverage in its own post. 
 
 The best output for starters acts as a framework that makes writing effortless. When you're putting fingers to keyboard, it's to refine and polish instruction and add your own linguistic and syntactic choices to the text. 
@@ -123,9 +121,7 @@ If you have LLMs connected to Slack, I would suggest tagging specific people and
 
 My prompting usually includes something like:
 
-```text
-In #channel, users @joe, @sally, and @rick usually have questions that involve engineering. Flag any non-billing questions from those users, as well as any other questions from other users that did not have a knowledge base link in the response
-```
+> In #channel, users @joe, @sally, and @rick usually have questions that involve engineering. Flag any non-billing questions from those users, as well as any other questions from other users that did not have a knowledge base link in the response
 
 BTW, this tip also works for sales channels. Your sales people usually type out a debrief, and sometimes link to their calls and demos. Your LLM can pick these up and highlight areas for review on your side. 
 
@@ -198,3 +194,6 @@ Bounce rate no longer matters the way CSAT does.
 
 
 ## What’s your hidden feedback channel?  
+
+Let's [Connect on LinkedIn](https://www.linkedin.com/in/richardbashara/) and talk about it.
+
