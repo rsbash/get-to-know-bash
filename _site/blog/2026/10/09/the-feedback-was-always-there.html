@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>The Feedback Has Always Been There | Get to Know Bash</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="The Feedback Has Always Been There" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="If you’re tired of dealing with a monsoon every sprint, changing where you look for feedback will help." />
+<meta property="og:description" content="If you’re tired of dealing with a monsoon every sprint, changing where you look for feedback will help." />
+<link rel="canonical" href="http://localhost:4000/get-to-know-bash/blog/2026/10/09/the-feedback-was-always-there.html" />
+<meta property="og:url" content="http://localhost:4000/get-to-know-bash/blog/2026/10/09/the-feedback-was-always-there.html" />
+<meta property="og:site_name" content="Get to Know Bash" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-10-09T10:00:00-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="The Feedback Has Always Been There" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-10-09T10:00:00-07:00","datePublished":"2026-10-09T10:00:00-07:00","description":"If you’re tired of dealing with a monsoon every sprint, changing where you look for feedback will help.","headline":"The Feedback Has Always Been There","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/get-to-know-bash/blog/2026/10/09/the-feedback-was-always-there.html"},"url":"http://localhost:4000/get-to-know-bash/blog/2026/10/09/the-feedback-was-always-there.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/get-to-know-bash/assets/css/style.css?v=">
+    <link rel="stylesheet" href="/get-to-know-bash/assets/css/main.css">
+<script>
+// Function to expand details when hash link is clicked
+function expandAncestorDetails(element) {
+  let parent = element.parentElement;
+  while (parent) {
+    if (parent.tagName === 'DETAILS') {
+      parent.open = true;
+    }
+    parent = parent.parentElement;
+  }
+}
+
+// Handle direct navigation to hash URLs
+if (window.location.hash) {
+  const targetElement = document.querySelector(window.location.hash);
+  if (targetElement) {
+    expandAncestorDetails(targetElement);
+    // Smooth scroll to the element
+    targetElement.scrollIntoView();
+  }
+}
+
+// Handle clicks on TOC links
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.toc a[href^="#"]');
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        e.preventDefault();
+        expandAncestorDetails(targetElement);
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+        // Update URL hash
+        history.pushState(null, null, targetId);
+      }
+    });
+  });
+});
+</script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="/get-to-know-bash/assets/js/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="/get-to-know-bash/assets/css/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/get-to-know-bash/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Get to Know Bash</h1>
+          <p>Find the resume and work samples of Richard Bashara here.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href=""></a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></span>
+        </div>
+
+        <p><a href="/get-to-know-bash/blog/">← Back to blog</a></p>
+
+<h1>The Feedback Has Always Been There</h1>
+<p><em>October 09, 2026</em></p>
+
+<p><em>If you’re tired of dealing with a monsoon every sprint, changing where you look for feedback will help.</em></p>
+
+<p>Docs work will arrive in waves, with a backlog and a strong sense of urgency behind them if you don’t proactively seek out and address feedback as it builds. I have fallen too often into this trap where <code class="language-plaintext highlighter-rouge">feedback == Google Analytics</code>, but a <a href="https://www.stateofdocs.com/2026/measuring-docs-success">State of Docs</a> report from 2026 confirms what I’ve been feeling for a while:</p>
+
+<blockquote>
+  <p>Customer feedback, support tickets, and user satisfaction scores have become as important as bounce rate to modern docs operations.</p>
+</blockquote>
+
+<p><img src="/get-to-know-bash/assets/images/state-of-docs-2026.png" alt="State of Docs 2026 report" /></p>
+
+<p>Simply put, you need to get into your customer’s support tickets and your sales team’s channels more often than you are if you want to target improvements that make their own waves.</p>
+
+<p>In this article I’ll cover:</p>
+
+<ol>
+  <li>Practical workflows to filter support ticket noise.</li>
+  <li>Ready-to-paste LLM prompts you can use for analysis.</li>
+  <li>A snapshot of results that speak to the effectiveness.</li>
+</ol>
+
+<h2 id="in-this-article">In This Article</h2>
+
+<ol>
+  <li><a href="#find-docs-feedback-channels-here">Find Docs feedback channels here</a></li>
+  <li><a href="#mining-support-tickets">Mining Support Tickets</a>
+    <ol>
+      <li><a href="#tips-to-filter-support-ticket-noise">Tips to filter support ticket noise</a></li>
+      <li><a href="#prompting-llms-for-ticket-analysis">Prompting LLMs for ticket analysis</a></li>
+    </ol>
+  </li>
+  <li><a href="#mining-internal-slack-messages">Mining Internal Slack Messages</a></li>
+  <li><a href="#coffee-chats">Coffee Chats</a></li>
+  <li><a href="#the-hidden-feedback">The hidden feedback</a></li>
+  <li><a href="#my-unofficial-results">My Unofficial Results</a></li>
+  <li><a href="#summing-it-all-up">Summing it all up</a></li>
+</ol>
+
+<h2 id="find-docs-feedback-channels-here">Find Docs feedback channels here</h2>
+
+<p>No one in an org larger than 100 is thinking “I’ll tag the docs team for help on this”. They are shouting into the ether, someone gives them an answer (or forms a code red to devise one) and boom, the <em>immediate</em> problem is solved, but the gap continues to exist. I’ve found this invisible feedback reliably lives in these domains:</p>
+
+<ol>
+  <li>Support tickets (usually, people need to know where something is and if they can do X with it)</li>
+  <li>Sales demos and recorded calls (Your sales people are fielding questions every day that you’re rarely ever exposed to)</li>
+  <li>Internal Slack channels, especially product-centric ones (Look for enablement or TSE folks asking questions)</li>
+  <li>Coffee chats with colleagues (especially sales, enablement, and GTM folks)</li>
+</ol>
+
+<p>Let’s tackle each in turn.</p>
+
+<h2 id="mining-support-tickets">Mining Support Tickets</h2>
+
+<p>This philosophy works for almost all CMS systems. The nuance and mileage differs based on what your company uses.</p>
+
+<p>You have incoming tickets, and access to a tagging and filtration system. Here are a few ideas:</p>
+
+<h3 id="tips-to-filter-support-ticket-noise">Tips to filter support ticket noise</h3>
+
+<p>If a ticket has gone unresolved for longer than three days, that’s usually a sign your docs can help. Start with that baseline, but cut through the noise and include some common phrasing your customers use when they talk to your support reps.</p>
+
+<p>Here’s my advice:</p>
+
+<ol>
+  <li>Pull up tickets from your company’s largest customer and have a look at their main contact. Someone or a team reaches out more than any other entity.</li>
+  <li>Commit to reading 5 of their tickets to get a feel for how they talk. Jot down some keywords in a CSV.</li>
+  <li>Look at your next 2-3 biggest and do the same.</li>
+</ol>
+
+<p>When you’re done, you should have a solid idea of how your VIP customers phrase their requests, and you might have even uncovered tasks you can start today.</p>
+
+<p>My list looked like this:</p>
+
+<p><strong>Subject/content/description Contains any of the following:</strong>’</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Keywords</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Documentation</strong></td>
+      <td>documentation, docs, doc, guide, example, sample, missing, outdated</td>
+    </tr>
+    <tr>
+      <td><strong>Docs Confusion</strong></td>
+      <td>error code, what does, why, how to, cannot find, not in docs, version, migration, rate limit, scope, permission, dashboard, UI</td>
+    </tr>
+    <tr>
+      <td><strong>Technical Issues</strong></td>
+      <td>webhook, signature, pagination, edge case, locale, language, translation, search, broken, typo, security, best practice, SDK, terminology, glossary</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>This achievable strategy uncovers both gaps and use cases your customers actually perform with your application. A tier 2 issue can easily become a detailed runbook, tutorial, and more.</p>
+</blockquote>
+
+<h3 id="prompting-llms-for-ticket-analysis">Prompting LLMs for ticket analysis</h3>
+
+<p>You’re cutting the noise and getting data. Probably a lot of it even with strict filtering. Your next move is to leverage LLMs to do the big-data analysis tasks they do best.</p>
+
+<p>Most CMS systems allow users to download a CSV of tickets. You don’t even need filtering active. Run the CSV through an LLM and prompt it to find major topics for discussion and updating.</p>
+
+<p>To get started now, I suggest a prompt like this one when you need to write or edit a full document:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You are a technical editor fielding issues to convert into docs tickets. Your job is to review each ticket in the attached CSV and make a determination of whether this ticket represents a fix documentation can and should make. Examples include: missing or unclear instruction, tickets where multiple docs links were supplied to answer a single question, or tickets where docs were not supplied. Not billing tickets and not bug reports. 
+</code></pre></div></div>
+
+<p>Call out specifcally what you want the LLM to find, and then give specific examples. Use “not” and be clear and strict about what not to include. Include quoted examples of the kind of data you want to find, as in directly quoted from your customers.</p>
+
+<p>Then, give the LLM clear instruction when a match occurs:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>For each ticket that qualifies as an issue docs can fix, produce an outline that contains the following:
+
+1. An intro paragraph. Briefly explain the feature and the intended outcome. 
+2. Instruction on how to access the feature. Refer to the closest known location and rely on the reviewer to validate. 
+3. Instructions on how to edit or delete the feature, again relying on the reviewer to verify your closest known location. 
+4. Any open questions uncovered during your research that a Tech writer should follow up on with a SME. 
+
+List unordered bullet points to state all known supporting evidence. Flag any evidence you find that you cannot verify. 
+
+[Insert CSV content or Ticket Transcript Here]
+</code></pre></div></div>
+<p>Personally, I started with an outline until my style guide was consistently achieving output I considered 80% passable. At that point, I’m doing UI and feature nuance checks. This output refinement takes time, and the level of prompting required is worth coverage in its own post.</p>
+
+<p>The best output for starters acts as a framework that makes writing effortless. When you’re putting fingers to keyboard, it’s to refine and polish instruction and add your own linguistic and syntactic choices to the text.</p>
+
+<blockquote>
+  <p>Consider the level of visibility your LLM currently has on your knowledge base. It may not see what you think it can without some configuration on your side.</p>
+</blockquote>
+
+<h2 id="mining-internal-slack-messages">Mining Internal Slack Messages</h2>
+
+<p>Your company probably has some kind of internal support channel. If it doesn’t, you can start one and be a hero today.</p>
+
+<p>If you have LLMs connected to Slack, I would suggest tagging specific people and channels as part of a daily review skill you build. The objective: what are these people or channels saying that docs needs to worry about?</p>
+
+<p>My prompting usually includes something like:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>In #channel, users @joe, @sally, and @rick usually have questions that involve engineering. Flag any non-billing questions from those users, as well as any other questions from other users that did not have a knowledge base link in the response
+</code></pre></div></div>
+
+<p>BTW, this tip also works for sales channels. Your sales people usually type out a debrief, and sometimes link to their calls and demos. Your LLM can pick these up and highlight areas for review on your side.</p>
+
+<p>Most of the time, these channels end up teaching folks how to read the docs. But once you get past that cynicism, you’ll find the docs don’t cover every technical use case.</p>
+
+<p>Staying active in these channels does two things for your career:</p>
+
+<ol>
+  <li>Visibility. More of the company sees you responding more and interacting more. You begin to brand yourself as the resident SME and doc master.</li>
+  <li>Docs nuance. There’s a lot of technical nuance you’re probably missing even on docs you’re most proud of. When engineers speak, you should listen.</li>
+</ol>
+
+<p><img src="/get-to-know-bash/assets/images/dear-apprentice.jpg" alt="My dear apprentice" /></p>
+
+<h2 id="coffee-chats">Coffee Chats</h2>
+
+<p>One of the most impactful documents I’ve written this year came from a coffee chat I had with a CSM lead.</p>
+
+<p>When she started telling me about her job, I asked her what annoyed her about it and she was surprisingly open with me. There was a lot of manual information gathering spread across many channels, and maintaining a mental model for that was incredibly taxing. To the point where she was going to write her own runbook to deal with it and that was my cue!</p>
+
+<p>This kind of interaction only happens when you drop your docs hat and exercise some human empathy. What bothers your colleagues about their work, and how motivated are you to help fix those issues? Very often, there’s a process document or external fix you can make that makes someone’s life much easier.</p>
+
+<p>And this leads into my final point.</p>
+
+<h2 id="the-hidden-feedback">The hidden feedback</h2>
+
+<p>If you’ve made it this far, you’re realizing there’s a hidden layer of feedback you will NEVER see. Your people’s own runbooks.</p>
+
+<p>To crack this one, you need to talk to your team. Spending a few extra minutes to be that shoulder or that venting outlet will very often lead to an idea for a document.</p>
+
+<p>My pet peeve is other writers listening to me say something and then telling me I should write a story about that. Probably true. Still don’t like to hear it. But in this case, I give you license to be that writer.</p>
+
+<p>There’s a story there. You just need to listen critically and empathetically to find it.</p>
+
+<h2 id="my-unofficial-results">My Unofficial Results</h2>
+
+<p>I’d be breaking probably a thousand NDA’s sharing actual numbers. So we’ll keep this vague while conveying real docs impact.</p>
+
+<p>After three months of this practice:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>My action</th>
+      <th>Change</th>
+      <th>Takeaways</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>1. Pulling support tickets and looking for gaps</strong></td>
+      <td>• 30 % drop in docs gaps.<br />• Targeted repeat queries → less support load.</td>
+      <td>Proactively mining tickets reveals the most‑asked‑about gaps, allowing you to fix documentation quickly and cut the number of tickets that bounce back to support.</td>
+    </tr>
+    <tr>
+      <td><strong>2. Using an LLM to analyse ticket sentiment</strong></td>
+      <td>• Article CSAT surged, with some pieces reaching &gt; 80 % satisfaction.<br />• LLM highlighted specific customer concerns that could be acted on.</td>
+      <td>LLMs turn raw ticket data into actionable insight, surfacing pain points you might miss and driving measurable improvements in user satisfaction.</td>
+    </tr>
+    <tr>
+      <td><strong>3. Examining internal channels (Slack, sales debriefs, etc.)</strong></td>
+      <td>• 80 % of top‑traffic docs refreshed based on direct sales feedback.<br />• No‑results logs cut by 25 % via better content tagging, eliminating “I can’t find X” queries.</td>
+      <td>Listening to internal conversations uncovers hidden documentation needs; systematic tagging and timely updates dramatically improve findability and reduce “dead‑end” searches.</td>
+    </tr>
+    <tr>
+      <td><strong>4. Taking coffee‑chat and internal feedback seriously</strong></td>
+      <td>• Docs response time shrank from days to hours.<br />• Team (TW) moved to a proactive stance, directly influencing support response rates.</td>
+      <td>Personal, informal feedback loops surface high‑impact opportunities, enabling rapid, targeted patches that keep docs current and boost overall support efficiency.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>If a support ticket costs your company $20-40 to finish, and you reduce support’s load by 30%, you’re easily saving your company upwards of several thousand month over month.</p>
+
+  <p>You should be openly bragging about that to everyone who will listen.</p>
+</blockquote>
+
+<h2 id="summing-it-all-up">Summing it all up</h2>
+
+<p>From State of Docs, what is clear:</p>
+
+<ul>
+  <li>74% of respondents rate their docs as at least somewhat effective for self-service troubleshooting. Troubleshooting is measured as:
+    <ul>
+      <li>Reduction in ticket volumes</li>
+      <li>Monitoring customer self-service success</li>
+      <li>Response time improvements on the CS side</li>
+    </ul>
+  </li>
+  <li>Top docs metrics tracked include: total coverage (as a % of features), freshness and accuracy, and docs quality scores. All of these rank higher than time to publish.</li>
+  <li>Half of the respondents say docs are important or essential for closing deals. You will very likely find your sales folks mentioning this if they’re posting debriefs.</li>
+</ul>
+
+<p>Feedback lands all over your organization, and as size increases you stop becoming someone’s first contact when things go wrong. A structured approach to feedback collection, some empathy for your colleagues, and a renewed interest in how your customers use your product will lead you to a steady flow of docs tasks making targeted improvements.</p>
+
+<p>Bounce rate no longer matters the way CSAT does.</p>
+
+<p><img src="/get-to-know-bash/assets/images/b2k7d2.jpg" alt="Bounce rate and CSAT comparison" /></p>
+
+<h2 id="whats-your-hidden-feedback-channel">What’s your hidden feedback channel?</h2>
+
+
+
+      </section>
+
+    </div>
+  </body>
+</html>

@@ -190,7 +190,7 @@ From State of Docs, what is clear:
 * Top docs metrics tracked include: total coverage (as a % of features), freshness and accuracy, and docs quality scores. All of these rank higher than time to publish. 
 * Half of the respondents say docs are important or essential for closing deals. You will very likely find your sales folks mentioning this if they're posting debriefs. 
 
-Feedback lands all over your organization, and as size increases you stop becoming someone's first contact when things go wrong. A structured approach to feedback collection, some empathy for your colleagues, and a renewed interest in how your customer's use your product will lead you to a steady flow of docs tasks making targeted improvements. 
+Feedback lands all over your organization, and as size increases you stop becoming someone's first contact when things go wrong. A structured approach to feedback collection, some empathy for your colleagues, and a renewed interest in how your customers use your product will lead you to a steady flow of docs tasks making targeted improvements. 
 
 Bounce rate no longer matters the way CSAT does. 
 
