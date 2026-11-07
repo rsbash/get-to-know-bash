@@ -50,6 +50,11 @@ I've collected a series of my best technical documentation, API docs, and blogs 
 * Written as an evergreen technical sample.
 * Uses a popular standard with a published reference to quickly view and track changes.
 
+[Customizing Link Previews with URL Unfurling](other-samples/Customizing%20Link%20Previews%20with%20URL%20Unfurling.htm)
+
+* Demonstrates how to design and document URL unfurling behavior for Slack, Teams, and other chat surfaces.
+* Includes implementation guidance, edge cases, and examples for making previews more useful and reliable.
+
 [GraphQL Brief](other-samples/GraphQL-brief.pdf)
 
 * Written as an evergreen technical sample.
@@ -61,9 +66,29 @@ I have archived each of these samples to preserve my work, but each sample shoul
 
 #### Kustomer Docs  
 
-1. [Quick‑Start: Adding a Customer with Kustomer’s Node SDK](other-samples/quick-start-guide-Kustomer.html)
-2. [Using evaluations with the Kustomer API](https://developer.kustomer.com/kustomer-apps-platform/docs/using-evaluations-with-the-kustomer-api)
-3. [Kustomer Voice Runbook](other-samples/The-Kustomer-Voice-Runbook.pdf)
+[Quick‑Start: Adding a Customer with Kustomer’s Node SDK](other-samples/quick-start-guide-Kustomer.html)
+
+A sample project that used Kustomer's v1 API to add a new customer to a company using the Node SDK.
+
+[Using evaluations with the Kustomer API](other-samples/Using%20evaluations%20with%20the%20Kustomer%20API.pdf)
+
+Programmatic evaluations were added and this guide was written to address workflow issues arising from the process. With this guide, reps could determine how to send these tests, what data to log and how to retrieve results effectively. 
+
+[Kustomer Voice Runbook](other-samples/The-Kustomer-Voice-Runbook.pdf)
+
+Designed to get Voice customers up and running fast. This guide was written based on feedback showing the Voice process had many steps presented in an often unclear order. With this guide, reps had a codified approach to Voice setup. 
+
+[Customizing Link Previews with URL Unfurling](other-samples/Customizing%20Link%20Previews%20with%20URL%20Unfurling.htm)
+
+URL unfurling was an important feature for B2C users, and this guide was written to give those users a full understanding of parameters and how this function is used. It includes coded HTML examples showing how to customize the URL's presentation to the end user. 
+
+[Delete Companies with the Kustomer API](other-samples/Kustomer-Delete-companies-with-the%20-ustomer-API.md)
+
+Deletion is a delicate subject, and this guide was written to help users fully understand the programmatic repurcussions involved with those changes. 
+
+[AI agents for retail example](other-samples/Tutorial_%20AI%20Agents%20for%20Reps%20retail%20example%20_%20Kustomer%20Help%20Center.pdf)
+
+A full use case documenting how to use Kustomer's AI Agents for Reps/Envoy. From setup to practical prompts and uses, this guide is designed for reps and managers to get started with a practical example. 
 
 Before my work with Kustomer:
 

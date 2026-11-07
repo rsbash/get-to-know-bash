@@ -5,6 +5,8 @@ baseurl: /get-to-know-bash
 show_downloads: true
 # google_analytics:
 theme: jekyll-theme-midnight
+exclude:
+  - secret-projects
 kramdown:
   input: GFM           # optional, but keeps the GitHub‑Flavored Markdown you’re already using
   escape_html: false   # <‑‑ important!
